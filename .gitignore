@@ -1,0 +1,15 @@
+*.exe
+*.obj
+*.dblite
+*.o
+*.bak
+*.sdf
+*.suo
+*.pdb
+*.opensdf
+*.idb
+*.*~
+*.ilk
+doc/doxygen/html
+
+
