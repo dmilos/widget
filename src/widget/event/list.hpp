@@ -1,14 +1,12 @@
-#ifndef widget_event_pure
-#define widget_event_pure
-
-#include "./id.hpp"
+#ifndef widget_event_list
+#define widget_event_list
 
 namespace widget
  {
   namespace event
    {
 
-    class enum list
+    enum list
      {
       mouse__begin,
       mouse_button_00_up, mouse_button_00_down,
@@ -31,11 +29,11 @@ namespace widget
       keyboard_shift_up,  keyboard_shift_down,
       keyboard_ctrl_up,   keyboard_ctrl_down,
 
-      keyboard_space_up,   keyboard_space_down,
-      keyboard_alt_up,   keyboard_alt_down,
-      keyboard_OS_up,   keyboard_OS_down
+      keyboard_space_up,  keyboard_space_down,
+      keyboard_alt_up,    keyboard_alt_down,
+      keyboard_OS_up,     keyboard_OS_down,
 
-      keyboard__end,
+      keyboard__end
 
      };
 

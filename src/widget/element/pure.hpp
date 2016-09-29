@@ -1,9 +1,16 @@
+#ifndef widget_element_pure
+#define widget_element_pure
+
+#include <map>
+#include <set>
+
+#include "../type/size.hpp"
 
 #include "../event/pure.hpp"
 #include "../event/action.hpp"
-#include "../event/id.hpp"
-#include "../type/point.hpp"
-#include "../type/.hpp"
+#include "../type/id.hpp"
+#include "../type/position.hpp"
+#include "../type/dumb.hpp"
 
 // using namespace widget::element::pure
 namespace widget
@@ -14,14 +21,17 @@ namespace widget
     class pure
      {
       public:
-        typedef coord_type;
-        typedef size_type;
+        typedef ::widget::type::position2d_type position2d_type;
 
-        typedef widget::element::id       eventID_type;
-        typedef widget::element::action  eventAction_type;
+        typedef ::widget::type::size2d_type size2d_type;
+
+        typedef ::widget::type::id_type         eventID_type;
 
         typedef ::widget::element::pure  pure_type;
-        typedef  ::pointer::dumb_ptr<pure_type> ptr_type;
+        typedef ::widget::type::dumb_ptr<pure_type> ptr_type;
+
+        typedef ::widget::event::action_type  eventAction_type;
+
 
         typedef std::map< eventID_type, eventAction_type > protocol_type;
         typedef std::set< ptr_type > container_type;
@@ -32,28 +42,28 @@ namespace widget
       //pure & operator=( pure const& original ){ return *this; }
 
       public:
-        size_type    const& size()const{ return m_size; }
-        virtual bool         size(  size_type const& p_size ){ m_size = p_size; return bool( true ); }
+        size2d_type    const& size()const{ return m_size; }
+        virtual bool          size(  size2d_type const& p_size ){ m_size = p_size; return bool( true ); }
       protected:
-        size_type        & size(){ return m_size; }
+        size2d_type        & size(){ return m_size; }
       private:
-        size_type m_size;
+        size2d_type m_size;
 
       public:
-        coord_type    const& position()const{ return m_position; }
-        virtual bool         position(  coord_type const& p_position ){ m_position = p_position; return bool( true ); }
+        position2d_type    const& position()const{ return m_position; }
+        virtual bool         position(  position2d_type const& p_position ){ m_position = p_position; return bool( true ); }
       protected:
-        coord_type        & position(){ return m_position; }
+        position2d_type        & position(){ return m_position; }
       private:
-        coord_type m_position;
+        position2d_type m_position;
 
       public:
-        protocol_type    const& protocol()const{ return m_protocol_type; }
+        protocol_type    const& protocol()const{ return m_protocol; }
         /*virtual*/ void protocol( eventID_type const& id, eventAction_type const& action );
       protected:
-        protocol_type        & protocol(){ return m_protocol_type; }
+        protocol_type        & protocol(){ return m_protocol; }
       private:
-        protocol_type m_position;
+        protocol_type m_protocol;
 
       public:
         ptr_type    const& parent()const{ return m_parent; }
@@ -65,7 +75,6 @@ namespace widget
 
       public:
         container_type    const& child()const{ return m_child; }
-        virtual bool       parent(  ptr_type const& p_child ){ m_child.insert( p_child ); return bool( true ); }
       protected:
         container_type        & child(){ return m_child; }
       private:
@@ -75,4 +84,6 @@ namespace widget
 
    }
  }
+
+#endif
 

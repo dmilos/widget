@@ -1,0 +1,9 @@
+
+
+directory_source = '../../'
+directory_out = './'
+
+list = []
+list += [ directory_source + 'src//widget//event//generator//pure.cpp' ]
+
+Library( 'libw', [ 'main.cpp' ] )

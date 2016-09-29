@@ -2,7 +2,10 @@
 #define widget_primitive_box
 
 #include "../type/color.hpp"
-#include "../type/point.hpp"
+#include "../type/position.hpp"
+
+
+#include "./pure.hpp"
 
 namespace widget
  {
@@ -10,14 +13,14 @@ namespace widget
    {
 
     class box
-     : public widget::primitive::pure
+     : public ::widget::primitive::pure
      {
       public:
-        typedef ::widget::type::color_t color_type;
-        typedef ::widget::type::point_t point_type;
+        typedef ::widget::type::color_type  color_type;
+        typedef ::widget::type::position2d_type position2d_type;
 
       public:
-                 box( point_type const& lo, point_type const & hi, color_type const& color )
+                 box( position2d_type const& lo, position2d_type const & hi, color_type const& color )
                   :m_color( color )
                   ,m_lo( lo )
                   ,m_hi( hi )
@@ -25,9 +28,9 @@ namespace widget
                   }
 
       public:
-        point_type m_lo; 
-        point_type m_hi;
-        color_type m_color;
+        position2d_type m_lo; 
+        position2d_type m_hi;
+        color_type      m_color;
      };
 
    }

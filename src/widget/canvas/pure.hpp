@@ -28,7 +28,8 @@ namespace widget
       private:
         size2d_type m_size;
 
-       void draw( primitive_type const& element )=0;
+      private:
+        virtual void draw( primitive_type const& element )=0;
 
      };
 

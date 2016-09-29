@@ -1,5 +1,5 @@
-    #ifndef widget_event_pure
-#define widget_event_pure
+#ifndef widget_event_engine_pure
+#define widget_event_engine_pure
 
 #include "./id.hpp"
 
