@@ -26,9 +26,9 @@ namespace widget
 
       public:
         size2d_type    const& size()const{ return m_size; }
-        virtual bool         size(  size2d_type const& p_size ){ m_size = p_size; return bool( true ); }
+        virtual bool          size(  size2d_type const& p_size ){ m_size = p_size; return bool( true ); }
       protected:
-        size2d_type        & size(){ return m_size; }
+        size2d_type         & size(){ return m_size; }
       private:
         size2d_type m_size;
 

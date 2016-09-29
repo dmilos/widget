@@ -14,6 +14,8 @@ int main( int argc, char *argv[] )
   w.canvas().draw( ::widget::primitive::background( {0,0,0} ) )
             .draw( ::widget::primitive::text( { 0, 0 }, "Hello World" ) );
 
+  cin.get();
+
   return EXIT_SUCCESS;
  }
 
