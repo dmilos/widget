@@ -3,14 +3,12 @@
 
 // widget::element::pure
 
-#include <map>
 #include <set>
 
 #include "../type/size.hpp"
 
-#include "../event/pure.hpp"
-#include "../event/action.hpp"
-#include "../type/id.hpp"
+#include "../event/engine/pure.hpp"
+
 #include "../type/position.hpp"
 #include "../type/dumb.hpp"
 #include "../canvas/pure.hpp"
@@ -28,18 +26,15 @@ namespace widget
 
         typedef ::widget::type::size2d_type size2d_type;
 
-        typedef ::widget::type::id_type         eventID_type;
-
         typedef ::widget::element::pure  pure_type;
         typedef ::widget::type::dumb_ptr<pure_type> ptr_type;
 
-        typedef ::widget::event::action_type  eventAction_type;
-        
         typedef ::widget::canvas::pure canvas_type;
         typedef ::widget::type::dumb_ptr<canvas_type> canvas_ptr_type;
 
+        typedef ::widget::event::engine::pure engine_type;
+        typedef ::widget::type::dumb_ptr<engine_type> engine_ptr_type;
 
-        typedef std::map< eventID_type, eventAction_type > protocol_type;
         typedef std::set< ptr_type > container_type;
 
         pure(){ }
@@ -64,12 +59,10 @@ namespace widget
         position2d_type m_position;
 
       public:
-        protocol_type    const& protocol()const{ return m_protocol; }
-        /*virtual*/ void protocol( eventID_type const& id, eventAction_type const& action );
-      protected:
-        protocol_type        & protocol(){ return m_protocol; }
+        engine_type    const& engine()const{ return *m_engine; }
+        engine_type        & engine()      { return *m_engine; }
       private:
-        protocol_type m_protocol;
+        engine_ptr_type m_engine;
 
       public:
         ptr_type    const& parent()const{ return m_parent; }

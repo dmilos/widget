@@ -10,6 +10,6 @@ env.Append( CXXFLAGS = [ "/EHsc" ] )
  
 
 list = []
-list += [ directory_example + '//hello.cpp' ]
+list += [ directory_example + '//reaction.cpp' ]
 
 env.Library( 'libw', list  )

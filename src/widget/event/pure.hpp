@@ -1,7 +1,7 @@
 #ifndef widget_event_pure
 #define widget_event_pure
 
-#include "../type/id.hpp"
+#include "./id.hpp"
 
 namespace widget
  {
@@ -11,10 +11,10 @@ namespace widget
     class pure
      {
       public:
-        typedef widget::type::id_type id_type;
+        typedef widget::event::id_type id_type;
 
       public:
-        explicit  pure( id_type id_param = 0 ):m_id(id_param){ }
+        explicit  pure( id_type const& id_param = 0 ):m_id(id_param){ }
         virtual  ~pure(){ }
       public:
                   id_type    const& id()const{ return m_id; }
