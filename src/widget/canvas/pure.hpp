@@ -19,7 +19,7 @@ namespace widget
         
         typedef widget::canvas::pure pure_type; 
 
-        pure(){ }
+        pure():m_size{1,1}{ }
       //pure( pure const& original ){ *this = P_original; }
        ~pure(){ }
       //pure & operator=( pure const& original ){ return *this; }
@@ -33,7 +33,7 @@ namespace widget
         size2d_type m_size;
 
       public:
-        virtual pure_type & draw( primitive_type const& element )=0;
+        virtual pure_type & draw( primitive_type const& element ) =0;
 
      };
 

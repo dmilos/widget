@@ -1,9 +1,7 @@
-#ifndef widget_canvas_pure
-#define widget_canvas_pure
+#ifndef widget_canvas_xlib
+#define widget_canvas_xlib
 
-#include <windows.h>
-
-// widget::canvas::win32
+// widget::canvas::xlib
 
 #include "./pure.hpp"
 
@@ -12,7 +10,7 @@ namespace widget
   namespace canvas
    {
 
-    class win32 
+    class xlib
     : public widget::canvas::pure
      {
       public:
@@ -21,9 +19,9 @@ namespace widget
         
         typedef widget::canvas::pure pure_type; 
 
-        win32();
+        xlib();
       //pure( pure const& original ){ *this = P_original; }
-       ~win32();
+       ~xlib();
       //pure & operator=( pure const& original ){ return *this; }
 
       public:
@@ -31,8 +29,6 @@ namespace widget
 
       public:
         pure_type & draw( primitive_type const& element ) =0;
-      private:
-        HBITMAP m_bitmap;
 
      };
 
