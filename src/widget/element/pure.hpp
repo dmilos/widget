@@ -9,7 +9,6 @@
 
 #include "../event/engine/pure.hpp"
 
-#include "../type/position.hpp"
 #include "../type/dumb.hpp"
 #include "../canvas/pure.hpp"
 
@@ -22,7 +21,6 @@ namespace widget
     class pure
      {
       public:
-        typedef ::widget::type::position2d_type position2d_type;
 
         typedef ::widget::canvas::pure canvas_type;
         typedef ::widget::type::dumb_ptr<canvas_type> canvas_ptr_type;
@@ -38,14 +36,6 @@ namespace widget
       //pure( pure const& original ){ *this = P_original; }
        ~pure(){ }
       //pure & operator=( pure const& original ){ return *this; }
-
-      public:
-        position2d_type    const& position()const{ return m_position; }
-        virtual bool         position(  position2d_type const& p_position ){ m_position = p_position; return bool( true ); }
-      protected:
-        position2d_type        & position(){ return m_position; }
-      private:
-        position2d_type m_position;
 
       public:
         engine_type    const& engine()const{ return *m_engine; }

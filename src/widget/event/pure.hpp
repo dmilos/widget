@@ -16,12 +16,13 @@ namespace widget
       public:
         explicit  pure( id_type const& id_param = 0 ):m_id(id_param){ }
         virtual  ~pure(){ }
+
       public:
-                  id_type    const& id()const{ return m_id; }
+        id_type    const& id()const{ return m_id; }
       protected:
-          id_type        & id(){ return m_id; }
+        id_type        & id(){ return m_id; }
       private:
-          id_type m_id;
+        id_type m_id;
 
      };
 
