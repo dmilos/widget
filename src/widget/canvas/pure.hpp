@@ -1,6 +1,8 @@
 #ifndef widget_canvas_pure
 #define widget_canvas_pure
 
+// widget::canvas::pure
+
 #include "../primitive/pure.hpp"
 #include "../type/size.hpp"
 
@@ -14,6 +16,8 @@ namespace widget
       public:
         typedef ::widget::type::size2d_type size2d_type;
         typedef ::widget::primitive::pure primitive_type;
+        
+        typedef widget::canvas::pure pure_type; 
 
         pure(){ }
       //pure( pure const& original ){ *this = P_original; }
@@ -28,8 +32,8 @@ namespace widget
       private:
         size2d_type m_size;
 
-      private:
-        virtual void draw( primitive_type const& element )=0;
+      public:
+        virtual pure_type & draw( primitive_type const& element )=0;
 
      };
 

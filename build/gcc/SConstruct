@@ -1,9 +1,15 @@
 
 
-directory_source = '../../'
-directory_out = './'
+directory_source  = '../../src'
+directory_example = '../../example'
+
+env = Environment( )
+env.Append( CPPPATH  = [ directory_source ] )
+env.Append( CXXFLAGS = [ "/EHsc" ] )
+
+ 
 
 list = []
-list += [ directory_source + 'src//widget//event//generator//pure.cpp' ]
+list += [ directory_example + '//hello.cpp' ]
 
-Library( 'libw', [ 'main.cpp' ] )
+env.Library( 'libw', list  )

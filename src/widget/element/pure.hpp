@@ -1,6 +1,8 @@
 #ifndef widget_element_pure
 #define widget_element_pure
 
+// widget::element::pure
+
 #include <map>
 #include <set>
 
@@ -11,8 +13,9 @@
 #include "../type/id.hpp"
 #include "../type/position.hpp"
 #include "../type/dumb.hpp"
+#include "../canvas/pure.hpp"
 
-// using namespace widget::element::pure
+
 namespace widget
  {
   namespace element
@@ -31,6 +34,9 @@ namespace widget
         typedef ::widget::type::dumb_ptr<pure_type> ptr_type;
 
         typedef ::widget::event::action_type  eventAction_type;
+        
+        typedef ::widget::canvas::pure canvas_type;
+        typedef ::widget::type::dumb_ptr<canvas_type> canvas_ptr_type;
 
 
         typedef std::map< eventID_type, eventAction_type > protocol_type;
@@ -79,6 +85,14 @@ namespace widget
         container_type        & child(){ return m_child; }
       private:
         container_type m_child;
+
+      public:
+        canvas_type    const& canvas()const{ return *m_canvas; }
+        canvas_type         & canvas()     { return *m_canvas; }
+      protected:
+        canvas_ptr_type     & canvas_ptr()     { return m_canvas; }
+      private:
+        canvas_ptr_type m_canvas;
 
      };
 
