@@ -5,6 +5,7 @@
 #include <thread>
 
 #include "./win32.hpp"
+#include "../../canvas/native.hpp"
 
 widget::event::generator::win32::win32()
  {
@@ -15,6 +16,15 @@ widget::event::generator::win32::win32()
 widget::event::generator::win32::~win32()
  {
 	stop();
+ }
+
+void widget::event::generator::win32::element( element_ptr_type element_param )
+ {
+  element_ptr() = element_param;
+  if( NULL != m_hWnd )
+   {
+	SetWindowLongPtr(m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr());
+   }
  }
 
 bool widget::event::generator::win32::run()
@@ -32,9 +42,21 @@ bool widget::event::generator::win32::run()
  
 void widget::event::generator::win32::stop()
  {
- PostMessage( m_hWnd, WM_CLOSE, 0, 0);
+	if (false == m_run)
+	{
+		return;
+	}
 
-  m_thread.join();
+  if( true == m_thread.joinable() )
+   {
+	  if (NULL != m_hWnd)
+	  {
+		  PostMessage(m_hWnd, WM_CLOSE, 0, 0);
+	  }
+
+	m_thread.join();
+   }
+
   m_run = false;
  }
 
@@ -50,6 +72,9 @@ void widget::event::generator::win32::loop()
 	{
 		return;
 	}
+
+	SetWindowLongPtr( m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr() );
+
 	ShowWindow(m_hWnd, SW_SHOW);
 	UpdateWindow(m_hWnd);
 
@@ -93,10 +118,10 @@ HWND widget::event::generator::win32::makeInstance()
 {
 	HWND hWnd = CreateWindow(
 		"{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}",
-		"title",
+		"",
 		WS_OVERLAPPEDWINDOW,
 		CW_USEDEFAULT, CW_USEDEFAULT,
-		500, 100,
+		500, 500,
 		NULL,
 		NULL,
 		GetModuleHandle(0),
@@ -107,30 +132,47 @@ HWND widget::event::generator::win32::makeInstance()
 }
 
 
-LRESULT CALLBACK widget::event::generator::win32::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
 {
 	PAINTSTRUCT ps;
 	HDC hdc;
 	TCHAR greeting[] = _T("Hello, World!");
 
-	switch (message)
+	::widget::element::pure *element = (::widget::element::pure *) GetWindowLongPtr( hWnd, GWLP_USERDATA );
+	::widget::canvas::native const*canvas = nullptr;
+	if( nullptr != element )
+	{
+		canvas = static_cast<::widget::canvas::native const*>(&(element->canvas()));
+	}
+
+	switch( message )
 	{
 	case WM_CLOSE:
 		DestroyWindow(hWnd);
 		break;
 	case WM_PAINT:
+	{
+		if (nullptr == canvas)
+		{
+			break;
+		}
+
+		HDC ddc = GetDC(NULL);
+		HDC cdc = CreateCompatibleDC(ddc);
+
+		{
+			TextOut(cdc, 5, 5, greeting, _tcslen(greeting));
+		}
+
+
 		hdc = BeginPaint(hWnd, &ps);
 
-		// Here your application is laid out.
-		// For this introduction, we just print out "Hello, World!"
-		// in the top left corner.
-		TextOut(hdc,
-			5, 5,
-			greeting, _tcslen(greeting));
-		// End application specific layout section.
+		TextOut(hdc, 50, 50, greeting, _tcslen(greeting));
+
+		BitBlt(hdc, 0, 0, 100, 100, cdc, 0, 0, SRCCOPY);
 
 		EndPaint(hWnd, &ps);
-		break;
+	}break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;

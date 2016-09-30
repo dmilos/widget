@@ -3,7 +3,7 @@
 
 // widget::event::generator::pure
 
-#include "../action.hpp"
+#include "../../element/pure.hpp"
 #include "../pure.hpp"
 
 namespace widget
@@ -16,19 +16,20 @@ namespace widget
       class pure
        {
         public:
-          typedef widget::event::pure event_type;
-          typedef widget::event::action_type action_type;
+          typedef ::widget::event::pure event_type;
+          typedef ::widget::element::pure element_type;
+		  typedef ::widget::type::dumb_ptr<element_type> element_ptr_type;
 
         public:
           explicit  pure( ){ }
           virtual  ~pure(){ }
 
         public:
-          void action( action_type const& action_param ){ m_action = action_param; }
+          virtual void element( element_ptr_type element_param){ m_element = element_param; }
         protected:
-          action_type & action(){ return m_action; }
+		 element_ptr_type & element_ptr(){ return m_element; }
         private:
-          action_type m_action;
+			element_ptr_type m_element;
 
         public:
 		  virtual bool run() =0;

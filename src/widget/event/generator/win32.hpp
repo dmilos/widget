@@ -28,6 +28,8 @@ namespace widget
           ~win32();
 
 	   public:
+		   void element(element_ptr_type element_param);
+	   public:
 		   bool run();
 		   void stop();
 

@@ -24,7 +24,8 @@ int main( int argc, char *argv[] )
 
   w.attach( &b1 );
 
-  g.action( [&w](::widget::event::pure const& event)->bool { return w.consumer().process(event); } );
+  g.element( &w );
+  g.run();
 
   cin.get();
 

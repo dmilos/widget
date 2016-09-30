@@ -32,9 +32,8 @@ namespace widget
 
       public:
 		  pure_type & draw(primitive_type const& element);
-      private:
-        HBITMAP m_bitmap;
-
+      public:
+		HDC     m_dc;
      };
 
    }
