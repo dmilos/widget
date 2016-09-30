@@ -31,11 +31,8 @@ namespace widget
           action_type m_action;
 
         public:
-          bool run();
-          void stop();
-
-        protected:
-          virtual event_type const& generate()=0;
+		  virtual bool run() =0;
+          virtual void stop() =0;
 
        };
 

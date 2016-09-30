@@ -12,6 +12,50 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\example\reaction.cpp" />
+    <ClCompile Include="..\..\src\widget\canvas\win32.cpp" />
+    <ClCompile Include="..\..\src\widget\canvas\xlib.cpp" />
+    <ClCompile Include="..\..\src\widget\element\basic.cpp" />
+    <ClCompile Include="..\..\src\widget\event\generator\pure.cpp" />
+    <ClCompile Include="..\..\src\widget\event\generator\win32.cpp" />
+    <ClCompile Include="..\..\src\widget\event\generator\xlib.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\widget\canvas\memory.hpp" />
+    <ClInclude Include="..\..\src\widget\canvas\native.hpp" />
+    <ClInclude Include="..\..\src\widget\canvas\pure.hpp" />
+    <ClInclude Include="..\..\src\widget\canvas\win32.hpp" />
+    <ClInclude Include="..\..\src\widget\canvas\xlib.hpp" />
+    <ClInclude Include="..\..\src\widget\element\basic.hpp" />
+    <ClInclude Include="..\..\src\widget\element\pure.hpp" />
+    <ClInclude Include="..\..\src\widget\event\action.hpp" />
+    <ClInclude Include="..\..\src\widget\event\basic.hpp" />
+    <ClInclude Include="..\..\src\widget\event\constant\keyboard.hpp" />
+    <ClInclude Include="..\..\src\widget\event\constant\mouse.hpp" />
+    <ClInclude Include="..\..\src\widget\event\constant\widget.hpp" />
+    <ClInclude Include="..\..\src\widget\event\consumer\function.hpp" />
+    <ClInclude Include="..\..\src\widget\event\consumer\pure.hpp" />
+    <ClInclude Include="..\..\src\widget\event\consumer\simple.hpp" />
+    <ClInclude Include="..\..\src\widget\event\generator\native.hpp" />
+    <ClInclude Include="..\..\src\widget\event\generator\pure.hpp" />
+    <ClInclude Include="..\..\src\widget\event\generator\win32.hpp" />
+    <ClInclude Include="..\..\src\widget\event\generator\xlib.hpp" />
+    <ClInclude Include="..\..\src\widget\event\id.hpp" />
+    <ClInclude Include="..\..\src\widget\event\protocol.hpp" />
+    <ClInclude Include="..\..\src\widget\event\pure.hpp" />
+    <ClInclude Include="..\..\src\widget\primitive\background.hpp" />
+    <ClInclude Include="..\..\src\widget\primitive\box.hpp" />
+    <ClInclude Include="..\..\src\widget\primitive\circle.hpp" />
+    <ClInclude Include="..\..\src\widget\primitive\group.hpp" />
+    <ClInclude Include="..\..\src\widget\primitive\pixel.hpp" />
+    <ClInclude Include="..\..\src\widget\primitive\pure.hpp" />
+    <ClInclude Include="..\..\src\widget\primitive\text.hpp" />
+    <ClInclude Include="..\..\src\widget\type\color.hpp" />
+    <ClInclude Include="..\..\src\widget\type\dumb.hpp" />
+    <ClInclude Include="..\..\src\widget\type\id.hpp" />
+    <ClInclude Include="..\..\src\widget\type\position.hpp" />
+    <ClInclude Include="..\..\src\widget\type\scalar.hpp" />
+    <ClInclude Include="..\..\src\widget\type\size.hpp" />
+    <ClInclude Include="..\..\src\widget\type\string.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{A4EF806E-8D6E-4793-A076-7DEBE3316341}</ProjectGuid>
