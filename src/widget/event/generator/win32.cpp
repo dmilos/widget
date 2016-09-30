@@ -15,7 +15,7 @@ widget::event::generator::win32::win32()
 
 widget::event::generator::win32::~win32()
  {
-	stop();
+  stop();
  }
 
 void widget::event::generator::win32::element( element_ptr_type element_param )
@@ -23,7 +23,7 @@ void widget::event::generator::win32::element( element_ptr_type element_param )
   element_ptr() = element_param;
   if( NULL != m_hWnd )
    {
-	SetWindowLongPtr(m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr());
+  SetWindowLongPtr(m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr());
    }
  }
 
@@ -31,7 +31,7 @@ bool widget::event::generator::win32::run()
  {
   if (true == m_run)
    {
-	return true;
+  return true;
    }
 
   m_run = true;
@@ -39,153 +39,138 @@ bool widget::event::generator::win32::run()
 
   return true;
  }
- 
+
 void widget::event::generator::win32::stop()
  {
-	if (false == m_run)
-	{
-		return;
-	}
+  if (false == m_run)
+   {
+    return;
+   }
 
   if( true == m_thread.joinable() )
    {
-	  if (NULL != m_hWnd)
-	  {
-		  PostMessage(m_hWnd, WM_CLOSE, 0, 0);
-	  }
+    if (NULL != m_hWnd)
+     {
+      PostMessage(m_hWnd, WM_CLOSE, 0, 0);
+     }
 
-	m_thread.join();
+    m_thread.join();
    }
 
   m_run = false;
  }
 
 void widget::event::generator::win32::loop()
-{
-	if (false == registerClass())
-	{
-		return;
-	}
+ {
+  if (false == registerClass())
+   {
+    return;
+   }
 
-	m_hWnd = makeInstance();
-	if (NULL == m_hWnd)
-	{
-		return;
-	}
+  m_hWnd = makeInstance();
+  if (NULL == m_hWnd)
+   {
+    return;
+   }
 
-	SetWindowLongPtr( m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr() );
+  SetWindowLongPtr( m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr() );
 
-	ShowWindow(m_hWnd, SW_SHOW);
-	UpdateWindow(m_hWnd);
+  ShowWindow(m_hWnd, SW_SHOW);
+  UpdateWindow(m_hWnd);
 
-	MSG msg;
-	while ( GetMessage(&msg, NULL, 0, 0) )
-	{
-		TranslateMessage(&msg);
-		DispatchMessage(&msg);
-	}
+  MSG msg;
+  while( GetMessage( &msg, NULL, 0, 0 ) )
+   {
+    TranslateMessage( &msg );
+    DispatchMessage( &msg );
+   }
 }
 
 
 bool widget::event::generator::win32::registerClass()
-{
-	// if( GetClassInfoW
+ {
+  // if( GetClassInfoW
 
-	WNDCLASSEX wcex;
+  WNDCLASSEX wcex;
 
-	wcex.cbSize = sizeof(WNDCLASSEX);
-	wcex.style = CS_HREDRAW | CS_VREDRAW;
-	wcex.lpfnWndProc = WndProc;
-	wcex.cbClsExtra = 0;
-	wcex.cbWndExtra = 0;
-	wcex.hInstance = GetModuleHandle(0);
-	wcex.hIcon = LoadIcon(GetModuleHandle(0), MAKEINTRESOURCE(IDI_APPLICATION));
-	wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
-	wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
-	wcex.lpszMenuName = NULL;
-	wcex.lpszClassName = "{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}";
-	wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
+  wcex.cbSize = sizeof(WNDCLASSEX);
+  wcex.style = CS_HREDRAW | CS_VREDRAW;
+  wcex.lpfnWndProc = WndProc;
+  wcex.cbClsExtra = 0;
+  wcex.cbWndExtra = 0;
+  wcex.hInstance = GetModuleHandle(0);
+  wcex.hIcon = LoadIcon(GetModuleHandle(0), MAKEINTRESOURCE(IDI_APPLICATION));
+  wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
+  wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
+  wcex.lpszMenuName = NULL;
+  wcex.lpszClassName = "{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}";
+  wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
 
-	if (!RegisterClassEx(&wcex))
-	{
-		return false;
-	}
+  if (!RegisterClassEx(&wcex))
+   {
+    return false;
+   }
 
-	return true;
-}
+  return true;
+ }
 
 HWND widget::event::generator::win32::makeInstance()
-{
-	HWND hWnd = CreateWindow(
-		"{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}",
-		"",
-		WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, CW_USEDEFAULT,
-		500, 500,
-		NULL,
-		NULL,
-		GetModuleHandle(0),
-		NULL
-	);
+ {
+  HWND hWnd = CreateWindow(
+    "{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}",
+    "",
+    WS_OVERLAPPEDWINDOW,
+    CW_USEDEFAULT, CW_USEDEFAULT,
+    500, 500,
+    NULL,
+    NULL,
+    GetModuleHandle(0),
+    NULL
+  );
 
-	return hWnd;
-}
+  return hWnd;
+ }
 
 
 LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
-{
-	PAINTSTRUCT ps;
-	HDC hdc;
-	TCHAR greeting[] = _T("Hello, World!");
+ {
+  PAINTSTRUCT ps;
+  HDC hdc;
+  TCHAR greeting[] = _T("Hello, World!");
 
-	::widget::element::pure *element = (::widget::element::pure *) GetWindowLongPtr( hWnd, GWLP_USERDATA );
-	::widget::canvas::native const*canvas = nullptr;
-	if( nullptr != element )
-	{
-		canvas = static_cast<::widget::canvas::native const*>(&(element->canvas()));
-	}
+  ::widget::element::pure *element = (::widget::element::pure *) GetWindowLongPtr( hWnd, GWLP_USERDATA );
+  ::widget::canvas::native const*canvas = nullptr;
+  if( nullptr != element )
+   {
+    canvas = static_cast<::widget::canvas::native const*>(&(element->canvas()));
+   }
 
-	switch( message )
-	{
-	case WM_CLOSE:
-		DestroyWindow(hWnd);
-		break;
-	case WM_PAINT:
-	{
-		if (nullptr == canvas)
-		{
-			break;
-		}
+  switch( message )
+   {
+    case WM_CLOSE:
+      DestroyWindow(hWnd);
+     break;
+    case WM_PAINT:
+     {
+      if (nullptr == canvas)
+       {
+        break;
+       }
 
-		HDC ddc = GetDC(NULL);
-		HDC cdc = CreateCompatibleDC(ddc);
+      hdc = BeginPaint(hWnd, &ps);
 
-		{
-			TextOut(cdc, 5, 5, greeting, _tcslen(greeting));
-		}
+      BitBlt( hdc, canvas->offset()[0], canvas->offset()[1], canvas->size()[0], canvas->size()[1], canvas->m_dc, 0, 0, SRCCOPY);
 
+      EndPaint(hWnd, &ps);
 
-		hdc = BeginPaint(hWnd, &ps);
+     }break;
+    case WM_DESTROY:
+      PostQuitMessage(0);
+     break;
+    default:
+      return DefWindowProc(hWnd, message, wParam, lParam);
+     break;
+  }
 
-		TextOut(hdc, 50, 50, greeting, _tcslen(greeting));
-
-		BitBlt(hdc, 0, 0, 100, 100, cdc, 0, 0, SRCCOPY);
-
-		EndPaint(hWnd, &ps);
-	}break;
-	case WM_DESTROY:
-		PostQuitMessage(0);
-		break;
-	default:
-		return DefWindowProc(hWnd, message, wParam, lParam);
-		break;
-	}
-
-	return 0;
-}
-
-
-
-
-
-
+  return 0;
+ }

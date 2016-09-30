@@ -6,36 +6,50 @@
 #include <algorithm>
 
 #include "./win32.hpp"
+#include "../primitive/text.hpp"
 
 ::widget::canvas::win32::win32()
  {
   m_dc = nullptr;
+  m_bitmap = nullptr;
+  m_hOld = nullptr;
+
+  offset( { 0, 100 } );
   size( { 100, 100 } );
  }
 
 ::widget::canvas::win32::~win32()
  {
-	DeleteDC(m_dc);
+  if( NULL != m_dc )
+   {
+    SelectObject( m_dc, m_hOld );
+    DeleteObject( m_bitmap);
+    DeleteDC( m_dc );
+   }
  }
 
 
 bool
-::widget::canvas::win32::size( size2d_type const& p_size )
+::widget::canvas::win32::size( size2d_type const& size_param )
  {
   HDC ddc = GetDC( NULL );
-  HDC cdc = CreateCompatibleDC(ddc);
-  HBITMAP hbmp = CreateCompatibleBitmap( ddc, size()[0], size()[1] );
+  HDC dc = CreateCompatibleDC(ddc);
+  HBITMAP bitmap = CreateCompatibleBitmap( dc, size_param[0], size_param[1] );
+  HGDIOBJ hOld = SelectObject( dc, bitmap );
 
   if( NULL != m_dc )
    {
-	  //BitBlt( cdc, 0, 0, std::min<int>(p_size[0], size()[0]), std::min<int>(p_size[1], size()[1]), m_dc, 0, 0, SRCCOPY );
-	  DeleteDC(m_dc);
-	  m_dc = nullptr;
-  }
+    BitBlt( dc, 0, 0, std::min<int>( size_param[0], size()[0] ), std::min<int>(size_param[1], size()[1]), m_dc, 0, 0, SRCCOPY );
+    SelectObject( m_dc, m_hOld );
+    DeleteObject(m_bitmap);
+    DeleteDC( m_dc );
+   }
 
-  m_dc     = cdc;
+  m_dc     = dc;
+  m_bitmap = bitmap;
+  m_hOld    = hOld;
 
-  size() = p_size;
+  size() = size_param;
 
   return true;
  }
@@ -43,21 +57,13 @@ bool
 ::widget::canvas::win32::pure_type &
 ::widget::canvas::win32::draw( primitive_type const& element )
  {
-	TCHAR greeting[] = _T("Hello, World!");
-	TextOut(m_dc, 5, 5, greeting, _tcslen( greeting) );
-
-  /*{
-   if( )
+  {
+   widget::primitive::text const* text = dynamic_cast<widget::primitive::text const*>( &element );
+   if( nullptr != text )
     {
-	 
+     TextOutA( m_dc, text->m_position[0], text->m_position[1], text->m_content.c_str(), text->m_content.size() );
     }
-  }*/
+  }
 
-  /*{
-   if( )
-    {
-	 TextOut(m_cdc,5, 5, greeting, _tcslen(greeting) );
-    }
-  }*/
   return *this;
  }

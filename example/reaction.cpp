@@ -18,7 +18,9 @@ int main( int argc, char *argv[] )
   widget::element::basic b1;
 
   w.canvas().draw( ::widget::primitive::background( {0,0,0} ) )
-            .draw( ::widget::primitive::text( { 0, 0 }, "Hello World" ) );
+            .draw( ::widget::primitive::text( { 0,  0 }, "Hello Woooorld" ) )
+            .draw( ::widget::primitive::text( { 0, 20 }, "Hell" ) )
+            .draw( ::widget::primitive::text( { 0, 40 }, "Hell 5" ) );
 
   w.consumer().protocol( (::widget::event::id_type)::widget::event::constant::mouse::button_00_down, []( ::widget::event::pure const& )->bool{ return true; } );
 

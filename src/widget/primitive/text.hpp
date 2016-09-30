@@ -1,6 +1,8 @@
 #ifndef widget_primitive_text
 #define widget_primitive_text
 
+// widget::primitive::text
+
 #include "../type/color.hpp"
 #include "../type/position.hpp"
 #include "../type/string.hpp"
@@ -26,7 +28,7 @@ namespace widget
 
       public:
                  text( position2d_type const& position, string_type const& content )
-                  :m_position( position)
+                  :m_position( position )
                   ,m_content( content )
                   {
                   }

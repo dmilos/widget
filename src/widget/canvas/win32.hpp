@@ -28,12 +28,15 @@ namespace widget
 
       public:
         using pure_type::size;
-        bool          size(  size2d_type const& p_size );
+        bool          size( size2d_type const& p_size );
 
       public:
-		  pure_type & draw(primitive_type const& element);
+        pure_type & draw( primitive_type const& element );
+
       public:
-		HDC     m_dc;
+        HDC m_dc;
+        HBITMAP m_bitmap;
+        HGDIOBJ m_hOld;
      };
 
    }

@@ -28,7 +28,7 @@ namespace widget
 
       public:
         size2d_type    const& size()const{ return m_size; }
-        virtual bool          size(  size2d_type const& p_size ){ m_size = p_size; return bool( true ); }
+        virtual bool          size(  size2d_type const& size_param ){ m_size = size_param; return bool( true ); }
       protected:
         size2d_type         & size(){ return m_size; }
       private:
@@ -36,15 +36,14 @@ namespace widget
 
       public:
         position2d_type    const& offset()const{ return m_offset; }
-        virtual bool              offset(  position2d_type const& p_offset ){ m_offset = p_offset; return bool( true ); }
+        virtual bool              offset(  position2d_type const& offset_param ){ m_offset = offset_param; return bool( true ); }
       protected:
         position2d_type         & offset(){ return m_offset; }
       private:
         position2d_type m_offset;
 
       public:
-        virtual pure_type & draw( primitive_type const& element ) =0;
-
+        virtual pure_type & draw( primitive_type const& element_param ) =0;
      };
 
    }
