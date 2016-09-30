@@ -1,12 +1,12 @@
 #include "./basic.hpp"
 
 #include "../canvas/native.hpp"
-#include "../event/engine/simple.hpp"
+#include "../event/consumer/simple.hpp"
 
 
 ::widget::element::basic::basic()
  {
-  engine_ptr() = new ::widget::event::engine::simple;
+  consumer_ptr() = new ::widget::event::consumer::simple;
   canvas_ptr() = new ::widget::canvas::native;
  }
 

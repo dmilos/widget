@@ -2,7 +2,7 @@
 #define widget_event_generator_native
 
 
-#if
+#if defined( _MSC_VER )
 #include "./win32.hpp"
 
 namespace widget
@@ -11,15 +11,17 @@ namespace widget
    {
     namespace generator
      {
+
       typedef ::widget::event::generator::win32 native;
      }
    }
  }
 #endif
 
-#if
+#if defined( __GNUC__ )
 #include "./xlib.hpp"
 
+namespace widget
  {
   namespace event
    {

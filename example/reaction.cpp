@@ -6,19 +6,25 @@
 #include "widget/primitive/text.hpp"
 #include "widget/event/constant/mouse.hpp"
 
+#include "widget/event/generator/native.hpp"
+
 using namespace std;
 
 int main( int argc, char *argv[] )
  {
+  widget::event::generator::native g;
+
   widget::element::basic w;
   widget::element::basic b1;
 
   w.canvas().draw( ::widget::primitive::background( {0,0,0} ) )
             .draw( ::widget::primitive::text( { 0, 0 }, "Hello World" ) );
 
-  w.engine().protocol( (::widget::event::id_type)::widget::event::constant::mouse::button_00_down, []( ::widget::event::pure const& )->bool{ return true; } );
+  w.consumer().protocol( (::widget::event::id_type)::widget::event::constant::mouse::button_00_down, []( ::widget::event::pure const& )->bool{ return true; } );
 
   w.attach( &b1 );
+
+  g.action( [&w](::widget::event::pure const& event)->bool { return w.consumer().process(event); } );
 
   cin.get();
 

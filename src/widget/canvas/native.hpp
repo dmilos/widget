@@ -8,6 +8,7 @@ namespace widget
  {
   namespace canvas
    {
+
     typedef ::widget::canvas::win32 native;
    }
  }
@@ -20,7 +21,9 @@ namespace widget
  {
   namespace canvas
    {
+
     typedef ::widget::canvas::xlib native;
+
    }
  }
 

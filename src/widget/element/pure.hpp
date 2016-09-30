@@ -7,7 +7,7 @@
 
 #include "../type/size.hpp"
 
-#include "../event/engine/pure.hpp"
+#include "../event/consumer/simple.hpp"
 
 #include "../type/dumb.hpp"
 #include "../canvas/pure.hpp"
@@ -25,30 +25,30 @@ namespace widget
         typedef ::widget::canvas::pure canvas_type;
         typedef ::widget::type::dumb_ptr<canvas_type> canvas_ptr_type;
 
-        typedef ::widget::event::engine::pure engine_type;
-        typedef ::widget::type::dumb_ptr<engine_type> engine_ptr_type;
+        typedef ::widget::event::consumer::simple consumer_type;
+        typedef ::widget::type::dumb_ptr<consumer_type> consumer_ptr_type;
 
         typedef ::widget::element::pure  pure_type;
         typedef ::widget::type::dumb_ptr<pure_type> ptr_type;
         typedef std::set< ptr_type > container_type;
 
         pure( ptr_type const& parent = nullptr )
-		 : m_engine( nullptr )
-		 , m_parent( parent  )
-	     , m_canvas( nullptr )
-		 {
-		 }
+         : m_consumer( nullptr )
+         , m_parent( parent  )
+         , m_canvas( nullptr )
+         {
+         }
       //pure( pure const& original ){ *this = P_original; }
        ~pure(){ }
       //pure & operator=( pure const& original ){ return *this; }
 
       public:
-        engine_type    const& engine()const{ return *m_engine; }
-        engine_type         & engine()     { return *m_engine; }
-	 protected:
-		 engine_ptr_type     & engine_ptr() { return m_engine; }
+        consumer_type    const& consumer()const{ return *m_consumer; }
+        consumer_type         & consumer()     { return *m_consumer; }
+      protected:
+        consumer_ptr_type     & consumer_ptr() { return m_consumer; }
       private:
-        engine_ptr_type m_engine;
+        consumer_ptr_type m_consumer;
 
       public:
         ptr_type    const& parent()const{ return m_parent; }

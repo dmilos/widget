@@ -1,20 +1,21 @@
-#ifndef widget_event_engine_simple
-#define widget_event_engine_simple
+#ifndef widget_event_consumer_simple
+#define widget_event_consumer_simple
 
-//widget::event::engine::simple
+//widget::event::consumer::simple
 
 #include "../id.hpp"
 #include "./pure.hpp"
+#include "../protocol.hpp"
 
 namespace widget
  {
   namespace event
    {
-    namespace engine
+    namespace consumer
      {
 
       class simple
-	   : public ::widget::event::engine::pure
+       : public ::widget::event::consumer::pure
        {
         public:
           typedef ::widget::event::pure            event_type;
