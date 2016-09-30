@@ -5,6 +5,7 @@
 
 #include "../primitive/pure.hpp"
 #include "../type/size.hpp"
+#include "../type/position.hpp"
 
 namespace widget
  {

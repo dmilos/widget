@@ -32,7 +32,12 @@ namespace widget
         typedef ::widget::type::dumb_ptr<pure_type> ptr_type;
         typedef std::set< ptr_type > container_type;
 
-        pure( ptr_type const& parent = nullptr ):m_parent( parent ){ }
+        pure( ptr_type const& parent = nullptr )
+		 : m_engine( nullptr )
+		 , m_parent( parent  )
+	     , m_canvas( nullptr )
+		 {
+		 }
       //pure( pure const& original ){ *this = P_original; }
        ~pure(){ }
       //pure & operator=( pure const& original ){ return *this; }
@@ -40,6 +45,8 @@ namespace widget
       public:
         engine_type    const& engine()const{ return *m_engine; }
         engine_type         & engine()     { return *m_engine; }
+	 protected:
+		 engine_ptr_type     & engine_ptr() { return m_engine; }
       private:
         engine_ptr_type m_engine;
 

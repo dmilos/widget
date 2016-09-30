@@ -1,6 +1,8 @@
 #ifndef widget_event_pure
 #define widget_event_pure
 
+// widget::event::pure
+
 #include "./id.hpp"
 
 namespace widget

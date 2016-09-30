@@ -1,15 +1,20 @@
 
+import nucleotide
 
-directory_source  = '../../src'
-directory_example = '../../example'
+#make setting
+settings = nucleotide.Settings( )
+settings.set_custom( 'configuration', 'release' )
+settings.set_custom( 'compiler_version_msvc', '14.0' )
 
-env = Environment( )
-env.Append( CPPPATH  = [ directory_source ] )
-env.Append( CXXFLAGS = [ "/EHsc" ] )
+settings.set_custom( 'configuration',   ARGUMENTS.get( 'configuration', settings.get_custom( 'configuration' ) ) ) 
 
- 
+#Accumulate 
+# Nothing to accumulate. This is minimal
 
-list = []
-list += [ directory_example + '//reaction.cpp' ]
+# Call
+product = SConscript('./SConscript', exports=[ 'settings' ] )
 
-env.Library( 'libw', list  )
+#Make it defualt
+Default( product )
+
+

@@ -1,1 +1,0 @@
-#include "c:\prg\cygwin\home\dex\work\git\widget\src\widget\element\pure.hpp"

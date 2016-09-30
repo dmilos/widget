@@ -1,6 +1,8 @@
 #ifndef widget_event_generator_pure
 #define widget_event_generator_pure
 
+// widget::event::generator::pure
+
 #include "../action.hpp"
 #include "../pure.hpp"
 
@@ -22,11 +24,11 @@ namespace widget
           virtual  ~pure(){ }
 
         public:
-          void action( action_ptr_type const& action_param ){ m_action = action_param; }
+          void action( action_type const& action_param ){ m_action = action_param; }
         protected:
-          action_ptr_type & action(){ return m_action; }
+          action_type & action(){ return m_action; }
         private:
-          action_ptr_type m_action;
+          action_type m_action;
 
         public:
           bool run();

@@ -29,7 +29,7 @@ namespace widget
       public:
         container_type    const& container()const{ return m_container; }
       protected:
-        container_type        & container(){ return m_container; }
+        container_type        & container_direct(){ return m_container; }
       private:
         container_type m_container;
      };

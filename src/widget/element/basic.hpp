@@ -16,9 +16,9 @@ namespace widget
      {
       public:
 
-        basic(){ }
+        basic();
       //pure( pure const& original ){ *this = P_original; }
-       ~basic(){ }
+	   ~basic();
       //pure & operator=( pure const& original ){ return *this; }
 
 
