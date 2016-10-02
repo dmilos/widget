@@ -1,6 +1,9 @@
 #ifndef widget_type_position
 #define widget_type_position
 
+#include <array>
+
+
 namespace widget
  {
   namespace type

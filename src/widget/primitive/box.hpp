@@ -28,6 +28,8 @@ namespace widget
                   }
 
       public:
+        void draw( canvas_type & canvas_param )const;
+      public:
         position2d_type m_lo; 
         position2d_type m_hi;
         color_type      m_color;

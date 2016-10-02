@@ -11,6 +11,7 @@
 
 #include "../type/dumb.hpp"
 #include "../canvas/pure.hpp"
+#include "../primitive/pure.hpp"
 
 
 namespace widget
@@ -27,6 +28,8 @@ namespace widget
 
         typedef ::widget::event::consumer::simple consumer_type;
         typedef ::widget::type::dumb_ptr<consumer_type> consumer_ptr_type;
+
+        typedef ::widget::primitive::pure  primitive_type;
 
         typedef ::widget::element::pure  pure_type;
         typedef ::widget::type::dumb_ptr<pure_type> ptr_type;
@@ -74,6 +77,7 @@ namespace widget
       public:
         canvas_type    const& canvas()const{ return *m_canvas; }
         canvas_type         & canvas()     { return *m_canvas; }
+        pure_type         & draw( primitive_type const& primitive_param ) { primitive_param.draw( *m_canvas );  return *this; }
       protected:
         canvas_ptr_type     & canvas_ptr()     { return m_canvas; }
       private:

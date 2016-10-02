@@ -134,8 +134,7 @@ HWND widget::event::generator::win32::makeInstance()
 
 LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
  {
-  PAINTSTRUCT ps;
-  HDC hdc;
+ ;
   TCHAR greeting[] = _T("Hello, World!");
 
   ::widget::element::pure *element = (::widget::element::pure *) GetWindowLongPtr( hWnd, GWLP_USERDATA );
@@ -156,12 +155,23 @@ LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT messa
        {
         break;
        }
+	COLORREF clrRed  = RGB(255, 25, 5);
+	COLORREF clrAqua = RGB(0, 255, 255);
+	COLORREF clrNavy = RGB(0, 0, 128);
 
-      hdc = BeginPaint(hWnd, &ps);
 
-      BitBlt( hdc, canvas->offset()[0], canvas->offset()[1], canvas->size()[0], canvas->size()[1], canvas->m_dc, 0, 0, SRCCOPY);
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+        BitBlt( hdc, canvas->offset()[0], canvas->offset()[1], canvas->size()[0], canvas->size()[1], canvas->m_dc, 0, 0, SRCCOPY);
 
-      EndPaint(hWnd, &ps);
+		SetBkColor(hdc, RGB(255, 255, 255));
+		SetTextColor(hdc, clrRed);
+		TextOut(hdc, 50, 42, "Johnny Carson", 13);
+		SetBkColor(hdc, clrNavy);
+		SetTextColor(hdc, clrAqua);
+		TextOut(hdc, 50, 80, "The once king of late-night", 27);
+		EndPaint(hWnd, &ps);
+
 
      }break;
     case WM_DESTROY:

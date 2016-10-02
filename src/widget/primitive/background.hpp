@@ -24,6 +24,8 @@ namespace widget
         background( color_type const& color ):m_color( color ){ }
 
       public:
+        void draw( canvas_type & canvas_param )const;
+        public:
         color_type m_color;
      };
 

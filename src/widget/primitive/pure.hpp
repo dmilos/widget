@@ -3,6 +3,8 @@
 
 // widget::primitive::pure
 
+#include "../canvas/pure.hpp"
+
 namespace widget
  {
   namespace primitive
@@ -11,8 +13,12 @@ namespace widget
     class pure
      {
       public:
+        typedef widget::canvas::pure canvas_type;
+
                  pure(){ }
         virtual ~pure(){ }
+
+        virtual void draw( canvas_type & canvas_param )const=0;
 
      };
 

@@ -17,8 +17,7 @@ namespace widget
      {
       public:
         typedef ::widget::type::size2d_type size2d_type;
-        typedef ::widget::primitive::pure primitive_type;
-
+    
         typedef widget::canvas::pure pure_type;
 
         win32();
@@ -31,12 +30,10 @@ namespace widget
         bool          size( size2d_type const& p_size );
 
       public:
-        pure_type & draw( primitive_type const& element );
-
-      public:
         HDC m_dc;
         HBITMAP m_bitmap;
         HGDIOBJ m_hOld;
+        HWND    m_hWnd;
      };
 
    }

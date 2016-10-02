@@ -39,7 +39,7 @@ namespace widget
 		   static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
 	   private:
 		   void loop();
-	   private:
+	   public:
 		   HWND m_hWnd;
 		   volatile bool m_run;
 		   std::thread m_thread;
