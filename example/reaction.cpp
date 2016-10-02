@@ -26,8 +26,8 @@ int main( int argc, char *argv[] )
   w.canvas().size( { 400, 400 } );
   w.draw( ::widget::primitive::background( { 10, 0, 150 } ) )
    .draw( ::widget::primitive::text( { 0,  0 }, "Hello Woooorld", { 0, 0, 255 } ) )
-   .draw( ::widget::primitive::text( { 0, 20 }, "Hell" ) )
-   .draw( ::widget::primitive::text( { 0, 40 }, "Hell 5" ) )
+   .draw( ::widget::primitive::text( { 0, 20 }, "Hell",           { 255,0,0 } ) )
+   .draw( ::widget::primitive::text( { 0, 40 }, "Hell 5",         { 0,255,0 } ) )
    .draw( ::widget::primitive::pixel( { 0, 0 }, {255,0,0 } ) )
    .draw( ::widget::primitive::circle( { 100, 100 }, 50, { 255,255,255 } ) )
    .draw( ::widget::primitive::flush( ) );
