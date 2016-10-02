@@ -35,8 +35,9 @@ bool
  {
   HDC ddc = GetDC( m_hWnd );
   HDC dc = CreateCompatibleDC( ddc );
-  ReleaseDC( m_hWnd,     ddc );
-  HBITMAP bitmap = CreateCompatibleBitmap( dc, size_param[0], size_param[1] );
+  HBITMAP bitmap = CreateCompatibleBitmap( ddc, size_param[0], size_param[1] );
+  ReleaseDC( m_hWnd,  ddc );
+
   HGDIOBJ hOld = SelectObject( dc, bitmap );
 
   if( NULL != m_dc )
