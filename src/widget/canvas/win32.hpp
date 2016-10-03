@@ -1,9 +1,11 @@
 #ifndef widget_canvas_win32
 #define widget_canvas_win32
 
+// widget::canvas::win32
+
 #include <windows.h>
 
-// widget::canvas::win32
+
 
 #include "./pure.hpp"
 
@@ -17,7 +19,7 @@ namespace widget
      {
       public:
         typedef ::widget::type::size2d_type size2d_type;
-    
+
         typedef widget::canvas::pure pure_type;
 
         win32();

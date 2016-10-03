@@ -4,53 +4,33 @@
 
 ::widget::canvas::xlib::xlib()
  {
-
+  m_display = nullptr;;
+  m_screen = 0;
+  m_window = nullptr;
+  m_pixmap = 0;
  }
 
 ::widget::canvas::xlib::~xlib()
  {
-
-
  }
-
-
 
 bool
-::widget::canvas::xlib::size(  size2d_type const& p_size )
+::widget::canvas::xlib::size( size2d_type const& size_param )
  {
-  /*
-  Display *display=XOpenDisplay( NULL );
-  Visual *visual=DefaultVisual( display, 0 );
+  if( nullptr == m_display )
+   {
+    return false;
+   }
 
-  XImage  *ximage =  XCreateImage( display, visual, 24, ZPixmap, 0, image32, width, height, 32, 0);
+  XWindowAttributes attribute;
+  XGetWindowAttributes( m_display, *m_window, &attribute );
 
-  //XDestroyImage( m_ximage );
+  m_pixmap = XCreatePixmap( m_display, *m_window, size_param[0], size_param[1], attribute.depth );
 
-  ///// XPutImage(display, window, DefaultGC(display, 0), ximage, 0, 0, 0, 0, width, height); 
+  //if( m_pixmap.x11 )
+   {
 
-  Pixmap pixmap = XCreatePixmap( display, ???, width, height, depth )
+   }
 
-  //// XCopyPlane(display, m_pixmap, pixmap, DefaultGC(display, 0), 0, 0, width, height, 0, 0, plane )
-
-
-  XFreePixmap(display, m_pixmap )
-  m_pixmap = 0;
-  m_pixmap = pixmap;
-*/
   return true;
- }
-
-::widget::canvas::xlib::pure_type &
-::widget::canvas::xlib::draw( primitive_type const& element )
- {
-
-  {
-   /*if( )
-    {
-
-
-    }*/
-  }
-
-  return *this;
  }

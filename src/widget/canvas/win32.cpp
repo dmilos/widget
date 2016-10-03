@@ -6,7 +6,7 @@
 #include <algorithm>
 
 #include "./win32.hpp"
-#include "../primitive/text.hpp"
+
 
 ::widget::canvas::win32::win32()
  {

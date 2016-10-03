@@ -17,4 +17,14 @@ widget::primitive::flush::draw( canvas_type &canvas_param  )const
   GdiFlush();
 #endif
 
+#if defined( __GNUC__ )
+  //widget::canvas::xlib & xlc = static_cast<widget::canvas::xlib&>( canvas_param );
+  //XFlush( xlc.m_display );
+
+#endif
+
+
+
+
+
  }

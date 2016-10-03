@@ -3,6 +3,12 @@
 
 // widget::canvas::xlib
 
+#include <X11/Xlib.h>
+
+
+
+
+
 #include "./pure.hpp"
 
 namespace widget
@@ -15,9 +21,8 @@ namespace widget
      {
       public:
         typedef ::widget::type::size2d_type size2d_type;
-        typedef ::widget::primitive::pure primitive_type;
-        
-        typedef widget::canvas::pure pure_type; 
+
+        typedef widget::canvas::pure pure_type;
 
         xlib();
       //pure( pure const& original ){ *this = P_original; }
@@ -25,10 +30,13 @@ namespace widget
       //pure & operator=( pure const& original ){ return *this; }
 
       public:
-        bool          size(  size2d_type const& p_size );
-
+        using pure_type::size;
+        bool          size( size2d_type const& p_size );
       public:
-        pure_type & draw( primitive_type const& element ) =0;
+        Display  *m_display;
+        int       m_screen;
+        Window   *m_window;
+        Pixmap    m_pixmap;
 
      };
 

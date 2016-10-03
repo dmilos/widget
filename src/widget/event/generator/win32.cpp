@@ -21,9 +21,10 @@ widget::event::generator::win32::~win32()
 void widget::event::generator::win32::element( element_ptr_type element_param )
  {
   element_ptr() = element_param;
+
   if( NULL != m_hWnd )
    {
-  SetWindowLongPtr(m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr());
+    SetWindowLongPtr(m_hWnd, GWLP_USERDATA, (LONG_PTR)element_ptr());
    }
  }
 
@@ -31,7 +32,7 @@ bool widget::event::generator::win32::run()
  {
   if (true == m_run)
    {
-  return true;
+    return true;
    }
 
   m_run = true;
@@ -42,7 +43,7 @@ bool widget::event::generator::win32::run()
 
 void widget::event::generator::win32::stop()
  {
-  if (false == m_run)
+  if( false == m_run )
    {
     return;
    }
@@ -84,7 +85,7 @@ void widget::event::generator::win32::loop()
     TranslateMessage( &msg );
     DispatchMessage( &msg );
    }
-}
+ }
 
 
 bool widget::event::generator::win32::registerClass()

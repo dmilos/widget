@@ -27,23 +27,22 @@ namespace widget
           win32( );
           ~win32();
 
-	   public:
-		   void element(element_ptr_type element_param);
-	   public:
-		   bool run();
-		   void stop();
+        public:
+          void element( element_ptr_type element_param );
+        public:
+          bool run();
+          void stop();
 
-	   private:
-		   static bool registerClass();
-		   static HWND makeInstance();
-		   static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
-	   private:
-		   void loop();
-	   public:
-		   HWND m_hWnd;
-		   volatile bool m_run;
-		   std::thread m_thread;
-
+        private:
+           static bool registerClass();
+           static HWND makeInstance();
+           static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
+        private:
+          void loop();
+        public:
+          HWND m_hWnd;
+          volatile bool m_run;
+          std::thread   m_thread;
        };
 
    }
