@@ -1,0 +1,61 @@
+digraph color_conversion {
+	node [ shape ="box" ];
+	compound=true;
+
+	brain[  label = "Brain" ];
+	hands[  label = "Hands" ];
+	head [  label = "Head" ];
+	toes [  label = "Toes" ];
+	voice[  label = "Voice" ];
+
+	keyboard[  label = "Keyboard" ];
+	mouse[  label = "Mouse" ];
+	neural_interface[  label = "Neural scan interface" ];
+
+	display[  label = "Display" ];
+	diode[  label = "LE Diode" ];
+
+	alg0[  label = "Alg0" ];
+	alg1[  label = "Alg1" ];
+	alg2[  label = "Alg2" ];
+
+	subgraph cluster_user
+	{
+		label = "User";
+		brain;
+		hands;
+		head;
+		toes;
+		voice;
+	}
+
+	subgraph cluster_processor
+	{
+		label = "Processor";
+		alg0;
+		alg1;
+		alg2;
+	}
+
+	subgraph cluster_output
+	{
+		label = "Output";
+		display;
+		diode;
+	}
+
+	subgraph cluster_input
+	{
+		label = "Input";
+		keyboard;
+		mouse;
+		neural_interface;
+	}
+
+	brain -> keyboard[ ltail=cluster_user,      lhead=cluster_input,      dir=forward ];
+	keyboard -> alg0  [ ltail=cluster_input,     lhead=cluster_processor,  dir=forward ];
+	alg0 -> display   [ ltail=cluster_processor, lhead=cluster_output,     dir=forward  ];
+
+	display -> brain   [ ltail=cluster_output, lhead=cluster_user,     dir=forward  ];
+
+}
