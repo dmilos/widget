@@ -71,6 +71,8 @@ if os.name == 'nt' :
     envProgram.Append( LIBS = ['User32.lib'] )
     envProgram.Append( LIBS = ['Gdi32.lib'] )
 
+if os.name == 'posix' :
+    envProgram.Append( LIBS = ['X11'] )
 
 # Create program
 program = envProgram.Program( target =  directory_exe+ 'test' + envProgram['PROGSUFFIX'], source = source )

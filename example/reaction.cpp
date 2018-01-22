@@ -22,7 +22,6 @@ int main( int argc, char *argv[] )
   widget::element::basic w;
   widget::element::basic b1;
 
-  //static_cast<widget::canvas::win32&> ( w.canvas() ).m_hWnd = g.m_hWnd;
   w.canvas().size( { 400, 400 } );
   w.draw( ::widget::primitive::background( { 10, 0, 150 } ) )
    .draw( ::widget::primitive::text( { 0,  0 }, "Hello Woooorld", { 0, 0, 255 } ) )
