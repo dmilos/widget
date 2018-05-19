@@ -5,6 +5,7 @@
 
 #include "../id.hpp"
 #include "./pure.hpp"
+#include "../action.hpp"
 
 namespace widget
  {
@@ -18,7 +19,7 @@ namespace widget
        {
         public:
           typedef ::widget::event::pure            event_type;
-          typedef ::widget::event::action_type     action_type;
+          typedef ::widget::event::consumer::action_type     action_type;
 
         public:
           explicit  function( action_type const& action_param ):m_action( action_param ){ }

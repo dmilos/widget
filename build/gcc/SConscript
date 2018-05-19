@@ -40,28 +40,32 @@ envObject = nucleotide.Environment( settings ).native()
 source = []
 
 source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'event/generator/pure'  ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/event/generator/pure.cpp' ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'element/basic'         ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/element/basic.cpp' ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'window/element/basic'  ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/window/element/basic.cpp' ) ]
 
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/background'  ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/background.cpp' ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/box'         ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/box.cpp'        ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/circle'      ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/circle.cpp'     ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/flush'       ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/flush.cpp'      ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/lock'        ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/lock.cpp'       ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/pixel'       ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/pixel.cpp'      ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/text'        ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/text.cpp'       ) ]
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'primitive/unlock'      ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/primitive/unlock.cpp'     ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/background'  ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/background.cpp' ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/box'         ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/box.cpp'        ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/circle'      ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/circle.cpp'     ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/flush'       ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/flush.cpp'      ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/refresh'     ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/refresh.cpp'      ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/lock'        ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/lock.cpp'       ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/pixel'       ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/pixel.cpp'      ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/text'        ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/text.cpp'       ) ]
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/primitive/unlock'      ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/primitive/unlock.cpp'     ) ]
+
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'window/exchange/process'      ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/window/exchange/process.cpp'       ) ]
+
 
 if os.name == 'nt' :
-    source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/win32'          ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/win32.cpp' )  ]
+    source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/win32'          ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/win32.cpp'          ) ]
     source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'event/generator/win32' ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/event/generator/win32.cpp' ) ]
+    source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'window/exchange/win32' ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/window/exchange/win32.cpp' ) ]
 
 if os.name == 'posix' :
-    source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/xlib'           ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/xlib.cpp' )  ]
+    source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'canvas/xlib'           ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/canvas/xlib.cpp'          ) ]
     source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'event/generator/xlib'  ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/event/generator/xlib.cpp' ) ]
+    source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'window/exchange/xlib'  ) + envObject[ 'OBJSUFFIX' ],  source = directory_source + '/widget/window/exchange/xlib.cpp' ) ]
 
-source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'reaction'        ) + envObject[ 'OBJSUFFIX' ],  source = directory_example + '/reaction.cpp' ) ]
-
-
+source += [ envObject.StaticObject( target =  os.path.join( directory_obj, 'hello'        ) + envObject[ 'OBJSUFFIX' ],  source = directory_example + '/hello.cpp' ) ]
 
 
 # Make native environment
@@ -71,6 +75,8 @@ if os.name == 'nt' :
     envProgram.Append( LIBS = ['User32.lib'] )
     envProgram.Append( LIBS = ['Gdi32.lib'] )
 
+if os.name == 'posix' :
+    envProgram.Append( LIBS = ['X11'] )
 
 # Create program
 program = envProgram.Program( target =  directory_exe+ 'test' + envProgram['PROGSUFFIX'], source = source )

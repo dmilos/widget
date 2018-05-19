@@ -15,27 +15,36 @@ namespace widget
    {
 
     class win32
-    : public widget::canvas::pure
+    : public virtual widget::canvas::pure< std::size_t, int, 2 >
      {
       public:
-        typedef ::widget::type::size2d_type size2d_type;
+        typedef widget::canvas::pure< std::size_t, int, 2 > pure_type;
 
-        typedef widget::canvas::pure pure_type;
+        typedef pure_type::sizeNd_type sizeNd_type, size2d_type;
 
         win32();
       //pure( pure const& original ){ *this = P_original; }
        ~win32();
       //pure & operator=( pure const& original ){ return *this; }
 
-      public:
-        using pure_type::size;
-        bool          size( size2d_type const& p_size );
+       void clear();
 
       public:
-        HDC m_dc;
+        sizeNd_type    const& size()const{ return m_size; }
+        virtual bool          size( sizeNd_type const& size_param );
+      protected:
+        sizeNd_type         & size_protected(){ return m_size; }
+      private:
+        sizeNd_type m_size;
+
+      public:
+        HWND    m_hWnd;
+        void hWnd( HWND const& hwnd );
+      public:
+
+        HDC     m_dc;
         HBITMAP m_bitmap;
         HGDIOBJ m_hOld;
-        HWND    m_hWnd;
      };
 
    }

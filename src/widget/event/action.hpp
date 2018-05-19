@@ -10,10 +10,13 @@ namespace widget
  {
   namespace event
    {
+    namespace consumer
+     {
 
-    typedef std::function< bool( ::widget::event::pure const& ) > action_type;
+      typedef std::function< bool( ::widget::event::pure const& ) > action_type;
 
+     }
    }
-}
+ }
 
 #endif

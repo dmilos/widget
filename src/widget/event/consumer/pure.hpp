@@ -1,5 +1,6 @@
 #ifndef widget_event_consumer_pure
 #define widget_event_consumer_pure
+// ::widget::event::consumer::consumer
 
 #include "../pure.hpp"
 
@@ -16,7 +17,7 @@ namespace widget
           typedef ::widget::event::pure            event_type;
 
         public:
-                    pure( ){ }
+                    pure(){ }
           virtual  ~pure(){ }
 
         public:

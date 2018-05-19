@@ -1,7 +1,10 @@
 #ifndef widget_event_pure
 #define widget_event_pure
 
-// widget::event::pure
+#include <cstdint>
+#include <array>
+
+// ::widget::event::pure
 
 #include "./id.hpp"
 
@@ -13,22 +16,43 @@ namespace widget
     class pure
      {
       public:
-        typedef widget::event::id_type id_type;
+        typedef widget::event::id_type     source_type;
+        typedef widget::event::id_type         ID_type;
+
+        typedef std::pair< source_type, ID_type >     pair_type;
+
+        typedef std::array<std::uint8_t,128> data_type;
 
       public:
-        explicit  pure( id_type const& id_param = 0 ):m_id(id_param){ }
-        virtual  ~pure(){ }
+        explicit  pure( source_type const& source_param, ID_type const& id_param, data_type const& data = data_type() )
+         :m_source(source_param)
+         ,m_id(id_param)
+       //,m_data(data_param)
+          {
+          }
+
+         ~pure(){ }
 
       public:
-        id_type    const& id()const{ return m_id; }
-      protected:
-        id_type        & id(){ return m_id; }
+         source_type    const& source()const { return m_source; }
       private:
-        id_type m_id;
+        source_type  m_source;
 
+      public:
+        ID_type    const& id()const{ return m_id; }
+      protected:
+        ID_type        & id(){ return m_id; }
+      private:
+        ID_type m_id;
+
+      public:
+        data_type    const& data()const { return m_data; }
+        data_type         &  data()     { return m_data; }
+      protected:
+        data_type    m_data;
      };
 
    }
-}
+ }
 
 #endif

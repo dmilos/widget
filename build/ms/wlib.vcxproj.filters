@@ -19,162 +19,243 @@
     <Filter Include="Source Files\src\widget">
       <UniqueIdentifier>{9c1a2b3a-02e2-4a96-996e-92c8fb5d3bdc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\widget\canvas">
+    <Filter Include="Source Files\src\widget\A - canvas">
       <UniqueIdentifier>{ae66f1b0-af98-4bd0-892f-b2429c922acc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\widget\element">
-      <UniqueIdentifier>{15124fa6-dc0a-44b7-8df4-3955006b8bf6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\src\widget\event">
+    <Filter Include="Source Files\src\widget\B - event">
       <UniqueIdentifier>{451982a5-bcf5-428c-94ee-a076dea64a05}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\widget\primitive">
-      <UniqueIdentifier>{947abc9a-4448-405a-97eb-0d44c7616877}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\src\widget\type">
-      <UniqueIdentifier>{594d6349-1409-419d-9129-22225332bca9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\src\widget\event\constant">
+    <Filter Include="Source Files\src\widget\B - event\constant">
       <UniqueIdentifier>{0bf7ba34-b0c3-407a-98cf-30ada159670f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\widget\event\consumer">
+    <Filter Include="Source Files\src\widget\B - event\consumer">
       <UniqueIdentifier>{89e5096e-7f84-4681-941f-0b0f8b8c2793}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\src\widget\event\generator">
+    <Filter Include="Source Files\src\widget\B - event\generator">
       <UniqueIdentifier>{1eab4ff1-ae37-48f6-a2f9-b1fe82e7e61d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\widget\0 - type">
+      <UniqueIdentifier>{594d6349-1409-419d-9129-22225332bca9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\widget\A - canvas\primitive">
+      <UniqueIdentifier>{947abc9a-4448-405a-97eb-0d44c7616877}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\widget\D - window">
+      <UniqueIdentifier>{a4bfd697-60ee-4fec-af76-5bb52dadfcbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\widget\D - window\exchange">
+      <UniqueIdentifier>{c6a9a683-8c96-4039-bd92-c81eaa58013d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src\widget\D - window\C - element">
+      <UniqueIdentifier>{15124fa6-dc0a-44b7-8df4-3955006b8bf6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\widget\element\basic.cpp">
+      <Filter>Source Files\src\widget\D - window\C - element</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\win32.cpp">
+      <Filter>Source Files\src\widget\A - canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\xlib.cpp">
+      <Filter>Source Files\src\widget\A - canvas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\event\generator\pure.cpp">
+      <Filter>Source Files\src\widget\B - event\generator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\event\generator\win32.cpp">
+      <Filter>Source Files\src\widget\B - event\generator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\event\generator\xlib.cpp">
+      <Filter>Source Files\src\widget\B - event\generator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\background.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\box.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\circle.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\flush.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\lock.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\pixel.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\text.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\unlock.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\window\exchange\process.cpp">
+      <Filter>Source Files\src\widget\D - window\exchange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\window\exchange\win32.cpp">
+      <Filter>Source Files\src\widget\D - window\exchange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\example\hello.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\example\reaction.cpp">
       <Filter>Source Files\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\widget\element\basic.cpp">
-      <Filter>Source Files\src\widget\element</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\widget\canvas\win32.cpp">
-      <Filter>Source Files\src\widget\canvas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\widget\canvas\xlib.cpp">
-      <Filter>Source Files\src\widget\canvas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\widget\event\generator\pure.cpp">
-      <Filter>Source Files\src\widget\event\generator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\widget\event\generator\win32.cpp">
-      <Filter>Source Files\src\widget\event\generator</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\widget\event\generator\xlib.cpp">
-      <Filter>Source Files\src\widget\event\generator</Filter>
+    <ClCompile Include="..\..\src\widget\canvas\primitive\refresh.cpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\widget\type\color.hpp">
-      <Filter>Source Files\src\widget\type</Filter>
+      <Filter>Source Files\src\widget\0 - type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\type\dumb.hpp">
-      <Filter>Source Files\src\widget\type</Filter>
+      <Filter>Source Files\src\widget\0 - type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\type\id.hpp">
-      <Filter>Source Files\src\widget\type</Filter>
+      <Filter>Source Files\src\widget\0 - type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\type\position.hpp">
-      <Filter>Source Files\src\widget\type</Filter>
+      <Filter>Source Files\src\widget\0 - type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\type\scalar.hpp">
-      <Filter>Source Files\src\widget\type</Filter>
+      <Filter>Source Files\src\widget\0 - type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\type\size.hpp">
-      <Filter>Source Files\src\widget\type</Filter>
+      <Filter>Source Files\src\widget\0 - type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\type\string.hpp">
-      <Filter>Source Files\src\widget\type</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\primitive\background.hpp">
-      <Filter>Source Files\src\widget\primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\primitive\box.hpp">
-      <Filter>Source Files\src\widget\primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\primitive\circle.hpp">
-      <Filter>Source Files\src\widget\primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\primitive\group.hpp">
-      <Filter>Source Files\src\widget\primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\primitive\pixel.hpp">
-      <Filter>Source Files\src\widget\primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\primitive\pure.hpp">
-      <Filter>Source Files\src\widget\primitive</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\primitive\text.hpp">
-      <Filter>Source Files\src\widget\primitive</Filter>
+      <Filter>Source Files\src\widget\0 - type</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\element\basic.hpp">
-      <Filter>Source Files\src\widget\element</Filter>
+      <Filter>Source Files\src\widget\D - window\C - element</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\element\pure.hpp">
-      <Filter>Source Files\src\widget\element</Filter>
+      <Filter>Source Files\src\widget\D - window\C - element</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\canvas\memory.hpp">
-      <Filter>Source Files\src\widget\canvas</Filter>
+      <Filter>Source Files\src\widget\A - canvas</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\canvas\native.hpp">
-      <Filter>Source Files\src\widget\canvas</Filter>
+      <Filter>Source Files\src\widget\A - canvas</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\canvas\pure.hpp">
-      <Filter>Source Files\src\widget\canvas</Filter>
+      <Filter>Source Files\src\widget\A - canvas</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\canvas\win32.hpp">
-      <Filter>Source Files\src\widget\canvas</Filter>
+      <Filter>Source Files\src\widget\A - canvas</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\canvas\xlib.hpp">
-      <Filter>Source Files\src\widget\canvas</Filter>
+      <Filter>Source Files\src\widget\A - canvas</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\constant\keyboard.hpp">
-      <Filter>Source Files\src\widget\event\constant</Filter>
+      <Filter>Source Files\src\widget\B - event\constant</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\constant\mouse.hpp">
-      <Filter>Source Files\src\widget\event\constant</Filter>
+      <Filter>Source Files\src\widget\B - event\constant</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\constant\widget.hpp">
-      <Filter>Source Files\src\widget\event\constant</Filter>
+      <Filter>Source Files\src\widget\B - event\constant</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\consumer\function.hpp">
-      <Filter>Source Files\src\widget\event\consumer</Filter>
+      <Filter>Source Files\src\widget\B - event\consumer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\consumer\pure.hpp">
-      <Filter>Source Files\src\widget\event\consumer</Filter>
+      <Filter>Source Files\src\widget\B - event\consumer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\consumer\simple.hpp">
-      <Filter>Source Files\src\widget\event\consumer</Filter>
+      <Filter>Source Files\src\widget\B - event\consumer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\generator\native.hpp">
-      <Filter>Source Files\src\widget\event\generator</Filter>
+      <Filter>Source Files\src\widget\B - event\generator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\generator\pure.hpp">
-      <Filter>Source Files\src\widget\event\generator</Filter>
+      <Filter>Source Files\src\widget\B - event\generator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\generator\win32.hpp">
-      <Filter>Source Files\src\widget\event\generator</Filter>
+      <Filter>Source Files\src\widget\B - event\generator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\generator\xlib.hpp">
-      <Filter>Source Files\src\widget\event\generator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\event\action.hpp">
-      <Filter>Source Files\src\widget\event</Filter>
+      <Filter>Source Files\src\widget\B - event\generator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\basic.hpp">
-      <Filter>Source Files\src\widget\event</Filter>
+      <Filter>Source Files\src\widget\B - event</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\id.hpp">
-      <Filter>Source Files\src\widget\event</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\src\widget\event\protocol.hpp">
-      <Filter>Source Files\src\widget\event</Filter>
+      <Filter>Source Files\src\widget\B - event</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\widget\event\pure.hpp">
-      <Filter>Source Files\src\widget\event</Filter>
+      <Filter>Source Files\src\widget\B - event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\background.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\box.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\circle.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\flush.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\group.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\lock.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\pixel.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\primitive.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\pure.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\text.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\unlock.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\window\pure.hpp">
+      <Filter>Source Files\src\widget\D - window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\window\basic.hpp">
+      <Filter>Source Files\src\widget\D - window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\nothing.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\window\exchange\process.hpp">
+      <Filter>Source Files\src\widget\D - window\exchange</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\window\exchange\win32.hpp">
+      <Filter>Source Files\src\widget\D - window\exchange</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\event\action.hpp">
+      <Filter>Source Files\src\widget\B - event\consumer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\event\protocol.hpp">
+      <Filter>Source Files\src\widget\B - event\consumer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\devnull.hpp">
+      <Filter>Source Files\src\widget\A - canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\window\win32.hpp">
+      <Filter>Source Files\src\widget\D - window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\window\native.hpp">
+      <Filter>Source Files\src\widget\D - window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\primitive\refresh.hpp">
+      <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

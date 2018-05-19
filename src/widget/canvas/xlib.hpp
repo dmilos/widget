@@ -7,8 +7,6 @@
 
 
 
-
-
 #include "./pure.hpp"
 
 namespace widget
@@ -17,12 +15,12 @@ namespace widget
    {
 
     class xlib
-    : public widget::canvas::pure
+    : public virtual widget::canvas::pure< std::size_t, int, 2 >
      {
       public:
-        typedef ::widget::type::size2d_type size2d_type;
+        typedef widget::canvas::pure< std::size_t, int, 2 > pure_type;
 
-        typedef widget::canvas::pure pure_type;
+        typedef pure_type::sizeNd_type size2d_type;
 
         xlib();
       //pure( pure const& original ){ *this = P_original; }

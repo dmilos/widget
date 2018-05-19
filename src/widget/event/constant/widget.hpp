@@ -16,11 +16,13 @@ namespace widget
 
       enum class widget
        {
-        _begin = ::widget::event::constant::mouse::_end,
+        pre_create,
 
         create,
         destroy,
+
         hide,
+        max,
 
         move,
         size,

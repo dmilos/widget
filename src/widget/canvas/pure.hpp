@@ -11,50 +11,43 @@ namespace widget
   namespace canvas
    {
 
-    class pure
-     {
-      public:
-        typedef ::widget::type::size2d_type size2d_type;
-        typedef ::widget::type::position2d_type position2d_type;
+    template< typename size_name, typename position_name, unsigned dimension_number >
+     class pure
+      {
+       public:
+         typedef ::widget::type::sizeNd_type<         size_name, dimension_number > sizeNd_type;
+         typedef ::widget::type::positionNd_type< position_name, dimension_number > positionNd_type;
 
-        typedef widget::canvas::pure pure_type;
+         typedef widget::canvas::pure< size_name, position_name, dimension_number > pure_type;
 
-        pure():m_size{1,1},m_offset{0,0}{ }
-      //pure( pure const& original ){ *this = P_original; }
-       ~pure(){ }
-      //pure & operator=( pure const& original ){ return *this; }
+         pure()/*:m_size{1,1},m_offset{0,0}*/{ }
+       //pure( pure const& original ){ *this = P_original; }
+        ~pure(){ }
+       //pure & operator=( pure const& original ){ return *this; }
 
-      public:
-        size2d_type    const& size()const{ return m_size; }
-        virtual bool          size(  size2d_type const& size_param ){ m_size = size_param; return bool( true ); }
-      protected:
-        size2d_type         & size_protected(){ return m_size; }
-      private:
-        size2d_type m_size;
+       //public:
+       //  sizeNd_type    const& size()const{ return m_size; }
+       //  virtual bool          size( sizeNd_type const& size_param ){ m_size = size_param; return bool( true ); }
+       //protected:
+       //  sizeNd_type         & size_protected(){ return m_size; }
+       //private:
+       //  sizeNd_type m_size;
 
-      public:
-        position2d_type    const& offset()const{ return m_offset; }
-        virtual bool              offset(  position2d_type const& offset_param ){ m_offset = offset_param; return bool( true ); }
-      protected:
-        position2d_type         & offset_protected(){ return m_offset; }
-      private:
-        position2d_type m_offset;
+       // public:
+       //   positionNd_type    const& offset()const{ return m_offset; }
+       //   virtual bool              offset(  positionNd_type const& offset_param ){ m_offset = offset_param; return bool( true ); }
+       // protected:
+       //   positionNd_type         & offset_protected(){ return m_offset; }
+       // private:
+       //   positionNd_type m_offset;
 
-      public:
-        virtual void lock(){  }
-        virtual void unlock(){  }
-        bool volatile const& status()const { return m_status; }
-      private:
-        volatile bool m_status;
-
-      // TODO public:
-      // TODO   mask_type      & mask(){ return m_mask; }
-      // TODO   mask_type const& mask()const{ return m_mask; }
-      // TODO protected:
-      // TODO   mask_type         & mask(){ return m_mask; }
-      // TODO private:
-      // TODO   mask_type m_mask;
-     };
+       public:
+         virtual void lock(){  }
+         virtual void unlock(){  }
+         bool volatile const& status()const { return m_status; }
+       private:
+         volatile bool m_status;
+      };
 
    }
  }
