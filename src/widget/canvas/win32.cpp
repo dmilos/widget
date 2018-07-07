@@ -63,11 +63,10 @@ bool
   m_bitmap = bitmap;
   m_hOld   = hOld;
 
-  size_protected() = size_param;
+  crop_type::size( size_param );
 
   return true;
  }
-
 
 void ::widget::canvas::win32::hWnd( HWND const& hwnd )
  {

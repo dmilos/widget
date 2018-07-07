@@ -8,7 +8,7 @@
 
 #include "../type/id.hpp"
 
-#include "../canvas/pure.hpp"
+#include "../canvas/crop.hpp"
 #include "../event/generator/pure.hpp"
 #include "./element/pure.hpp"
 
@@ -20,11 +20,12 @@ namespace widget
 
     template< typename size_name, typename position_name, unsigned dimension_number >
      class pure
-      : public virtual ::widget::canvas::pure< size_name, position_name, dimension_number>
+      : public virtual ::widget::canvas::crop< size_name, position_name, dimension_number>
       , public virtual ::widget::event::consumer::pure
       {
        public:
          typedef ::widget::canvas::pure< size_name, position_name, dimension_number >     canvas_type;
+         typedef ::widget::canvas::crop< size_name, position_name, dimension_number >     crop_type;
          typedef ::widget::event::consumer::pure                                        consumer_type;
 
          typedef ::widget::window::element::pure< size_name, position_name, dimension_number >   element_type;
@@ -38,13 +39,33 @@ namespace widget
           {
           }
 
+         virtual operator canvas_type&(){ return *this; }
+
          //pure( pure const& original ){ *this = P_original; }
          virtual ~pure() { }
          //pure & operator=( pure const& original ){ return *this; }
 
-         virtual bool attach( element_ptr_type const& element_param ) 
+         virtual void draw()
           {
-           if( true == m_element.empty() ) 
+           for( auto const& element: m_element )
+            {
+             element.second->draw( *this );
+            }
+          }
+
+         typename element_container_type::iterator begin()
+          {
+           return m_element.begin();
+          }
+
+         typename element_container_type::iterator end()
+          {
+           return m_element.begin();
+          }
+
+         virtual bool attach( element_ptr_type const& element_param )
+          {
+           if( true == m_element.empty() )
             {
              return this->attach( id_type(0), element_param);
             }

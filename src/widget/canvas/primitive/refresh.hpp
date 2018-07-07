@@ -24,13 +24,12 @@ namespace widget
            typedef ::widget::type::color_type  color_type;
 
            typedef ::widget::canvas::primitive::pure<size_name, position_name, dimension_number> pure_type;
-           typedef typename pure_type::canvas_type::positionNd_type positionNd_type;
 
          public:
            refresh( ){ }
 
          public:
-           void draw(canvas_type & canvas_param)const;
+           void draw( canvas_type & canvas_param)const;
         };
 
      }

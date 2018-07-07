@@ -17,9 +17,9 @@ namespace widget
     typedef std::array< size_type, 3 > size3d_type;
     typedef std::array <size_type, 4 > size4d_type;
     typedef std::array <size_type, 5 > size5d_type;
-	
-	template< typename number_name, unsigned dimension_number >
-	  using sizeNd_type = std::array< number_name, dimension_number >;
+
+    template< typename number_name, unsigned dimension_number > 
+     using sizeNd_type = std::array< number_name, dimension_number >;
 
    }
  }

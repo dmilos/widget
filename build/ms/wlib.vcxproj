@@ -32,6 +32,7 @@
     <ClCompile Include="..\..\src\widget\window\exchange\win32.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\widget\canvas\crop.hpp" />
     <ClInclude Include="..\..\src\widget\canvas\devnull.hpp" />
     <ClInclude Include="..\..\src\widget\canvas\memory.hpp" />
     <ClInclude Include="..\..\src\widget\canvas\native.hpp" />
@@ -124,10 +125,10 @@
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)\out\bin-release</OutDir>
     <IntDir>$(SolutionDir)\out\bin-release</IntDir>
-    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) configuration=release </NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir) -c configuration=release</NMakeCleanCommandLine>
-    <NMakeOutput>$(SolutionDir)\out\test.exe</NMakeOutput>
+    <NMakeBuildCommandLine>$(prg_scons) --directory=$(SolutionDir)\..\gcc configuration=release </NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>$(prg_scons) --directory=$(SolutionDir)\..\gcc -c configuration=release</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>$(prg_scons) --directory=$(SolutionDir)\..\gcc -c configuration=release</NMakeCleanCommandLine>
+    <NMakeOutput>$(SolutionDir)\..\..\nt\out\test.exe</NMakeOutput>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

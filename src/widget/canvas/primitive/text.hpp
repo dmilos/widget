@@ -27,8 +27,8 @@ namespace widget
       
            typedef ::widget::canvas::primitive::pure<size_name, position_name, dimension_number> pure_type;
            typedef ::widget::type::color_type  color_type;
-           typedef typename pure_type::canvas_type::positionNd_type positionNd_type;
-      
+           typedef ::widget::type::positionNd_type<position_name, dimension_number> positionNd_type;
+
          public:
                     text( positionNd_type const& position, string_type const& content, color_type const& color = color_type{} )
                      :m_position( position )

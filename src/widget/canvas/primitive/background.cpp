@@ -20,7 +20,7 @@ widget::canvas::primitive::background<std::size_t,int,2>::draw( canvas_type & ca
     return;
    }
 
-  RECT rect{ 0, 0, w32c->size()[0]-1, w32c->size()[1]-1  };
+  RECT rect{ (LONG)0, (LONG)0, (LONG)w32c->size()[0]-1, (LONG)w32c->size()[1]-1  };
   //RECT rect{ 0, 0, 1000, 1000  };
   HBRUSH brush = CreateSolidBrush( RGB( m_color[0], m_color[1],m_color[2] ) );
   FillRect( w32c->m_dc, &rect, brush );

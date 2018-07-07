@@ -12,10 +12,27 @@ namespace widget
    {
     namespace exchange
      {
-      template< typename size_name, typename position_name, unsigned dimension_number >
-       bool process( widget::canvas::pure< size_name, position_name, dimension_number > & c, widget::event::generator::pure & g );
 
-      bool process( widget::canvas::pure< std::size_t, int, 2 > & c, widget::event::generator::pure & g );
+      namespace prepare
+       {
+
+        template< typename size_name, typename position_name, unsigned dimension_number >
+         bool process( widget::canvas::pure< size_name, position_name, dimension_number > & c, widget::event::generator::pure & g );
+
+        bool process( widget::canvas::pure< std::size_t, int, 2 > & c, widget::event::generator::pure & g );
+
+       }
+
+
+      namespace report
+       {
+
+        template< typename size_name, typename position_name, unsigned dimension_number >
+         bool process( widget::canvas::pure< size_name, position_name, dimension_number > & c, widget::event::generator::pure & g );
+
+        bool process( widget::canvas::pure< std::size_t, int, 2 > & c, widget::event::generator::pure & g );
+
+       }
 
      }
 

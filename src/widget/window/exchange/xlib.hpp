@@ -3,14 +3,27 @@
 
 // widget::window::exchange::xlib
 
+
+
+#include "../../canvas/xlib.hpp"
+#include "../../event/generator/xlib.hpp"
+
 namespace widget
  {
   namespace window
    {
-    namespace exchane
+    namespace exchange
      {
 
-      bool xlib( widget::canvas::xlib & c, widget::event::generator::xlib & g );
+      namespace prepare
+       {
+        bool xlib( widget::canvas::xlib & c, widget::event::generator::xlib & g );
+       }
+
+      namespace report
+       {
+        bool xlib( widget::canvas::xlib & c, widget::event::generator::xlib & g );
+       }
 
      }
 

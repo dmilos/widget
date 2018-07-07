@@ -257,5 +257,8 @@
     <ClInclude Include="..\..\src\widget\canvas\primitive\refresh.hpp">
       <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\widget\canvas\crop.hpp">
+      <Filter>Source Files\src\widget\A - canvas</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

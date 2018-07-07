@@ -10,6 +10,8 @@
 widget::event::generator::win32::win32()
  {
   m_hWnd = NULL;
+  m_size[0] = 500;
+  m_size[1] = 500;
  }
 
 widget::event::generator::win32::~win32()
@@ -123,7 +125,7 @@ HWND widget::event::generator::win32::makeInstance()
     "",
     WS_OVERLAPPEDWINDOW,
     CW_USEDEFAULT, CW_USEDEFAULT,
-    500, 500,
+    m_size[0], m_size[1],
     NULL,
     NULL,
     GetModuleHandle(0),

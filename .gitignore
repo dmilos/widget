@@ -13,8 +13,9 @@
 doc/doxygen/html
 
 
-/build/out/nt/*.log
 /build/ms/gcc/*.log
 /build/ms/*.opendb
 /build/ms/*.db
 /out/nt
+/build/ms/out
+/build/out

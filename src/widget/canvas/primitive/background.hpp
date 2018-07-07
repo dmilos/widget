@@ -24,7 +24,6 @@ namespace widget
            typedef ::widget::type::color_type  color_type;
 
            typedef ::widget::canvas::primitive::pure<size_name, position_name, dimension_number> pure_type;
-           typedef typename pure_type::canvas_type::positionNd_type positionNd_type;
 
          public:
            background( color_type const& color ):m_color( color ){ }

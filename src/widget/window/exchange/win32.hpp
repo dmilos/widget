@@ -12,10 +12,18 @@ namespace widget
  {
   namespace window
    {
-    namespace exchane
+    namespace exchange
      {
 
-      bool win32( widget::canvas::win32 & c, widget::event::generator::win32 & g );
+      namespace prepare
+       {
+        bool win32( widget::canvas::win32 & c, widget::event::generator::win32 & g );
+       }
+
+      namespace report
+       {
+        bool win32( widget::canvas::win32 & c, widget::event::generator::win32 & g );
+       }
 
      }
 

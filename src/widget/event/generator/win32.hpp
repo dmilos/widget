@@ -11,6 +11,8 @@
 #include "./pure.hpp"
 #include "../action.hpp"
 
+#include "../../type/size.hpp"
+
 
 namespace widget
  {
@@ -35,7 +37,8 @@ namespace widget
         public:
           bool run();
           void stop();
-
+        public:
+          HWND const& hWnd()const{ return m_hWnd; }
         private:
            typedef ::widget::window::element::pure< std::size_t, int, 2 > element_type;
            static bool registerClass();
@@ -43,9 +46,11 @@ namespace widget
            static LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam );
         private:
           void loop();
-        public:
+        private:
           HWND m_hWnd;
           std::thread   m_thread;
+        public:
+          widget::type::size2d_type   m_size;
        };
 
    }

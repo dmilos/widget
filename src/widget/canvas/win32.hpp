@@ -7,7 +7,7 @@
 
 
 
-#include "./pure.hpp"
+#include "./crop.hpp"
 
 namespace widget
  {
@@ -15,12 +15,12 @@ namespace widget
    {
 
     class win32
-    : public virtual widget::canvas::pure< std::size_t, int, 2 >
+    : public virtual widget::canvas::crop< std::size_t, int, 2 >
      {
       public:
-        typedef widget::canvas::pure< std::size_t, int, 2 > pure_type;
+        typedef widget::canvas::crop< std::size_t, int, 2 > crop_type;
 
-        typedef pure_type::sizeNd_type sizeNd_type, size2d_type;
+        typedef crop_type::sizeNd_type sizeNd_type, size2d_type;
 
         win32();
       //pure( pure const& original ){ *this = P_original; }
@@ -30,18 +30,14 @@ namespace widget
        void clear();
 
       public:
-        sizeNd_type    const& size()const{ return m_size; }
+        using crop_type::size;
         virtual bool          size( sizeNd_type const& size_param );
-      protected:
-        sizeNd_type         & size_protected(){ return m_size; }
-      private:
-        sizeNd_type m_size;
 
       public:
         HWND    m_hWnd;
         void hWnd( HWND const& hwnd );
-      public:
 
+      public:
         HDC     m_dc;
         HBITMAP m_bitmap;
         HGDIOBJ m_hOld;

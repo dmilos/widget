@@ -23,8 +23,8 @@ namespace widget
          public:
            typedef ::widget::canvas::primitive::pure<size_name, position_name, dimension_number> pure_type;
            typedef ::widget::type::color_type  color_type;
-           typedef typename pure_type::canvas_type::positionNd_type positionNd_type;
-      
+           typedef ::widget::type::positionNd_type<position_name, dimension_number> positionNd_type;
+
            typedef ::widget::type::scalar_type scalar_type;
       
          public:

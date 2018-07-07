@@ -11,7 +11,7 @@ namespace widget
   namespace window
    {
 
-    typedef ::widget::window::win32< std::size_t, int, 2 > native, native_type, win32_type;
+    //typedef ::widget::window::win32< std::size_t, int, 2 > native, native_type, win32_type;
 
    }
  }
@@ -25,7 +25,7 @@ namespace widget
   namespace window
    {
 
-    typedef ::widget::window::xlib native, native_type, xlib_type;
+    //typedef ::widget::window::xlib native, native_type, xlib_type;
 
    }
  }

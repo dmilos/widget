@@ -17,10 +17,10 @@ namespace widget
       : public ::widget::canvas::primitive::pure< size_name, position_name, dimension_number >
       {
        public:
-		 typedef ::widget::canvas::primitive::pure<size_name, position_name, dimension_number> pure_type;
+         typedef ::widget::canvas::primitive::pure<size_name, position_name, dimension_number> pure_type;
          typedef ::widget::type::color_type  color_type;
-         typedef typename pure_type::canvas_type::positionNd_type positionNd_type;
-	 
+         typedef ::widget::type::positionNd_type<position_name, dimension_number> positionNd_type;
+
        public:
          box()
           {
@@ -31,12 +31,12 @@ namespace widget
           ,m_hi( hi )
           { 
           }
-	 
+ 
        public:
          void draw( canvas_type & canvas_param )const;
        public:
-		 positionNd_type m_lo;
-		 positionNd_type m_hi;
+         positionNd_type m_lo;
+         positionNd_type m_hi;
          color_type      m_color;
       };
 

@@ -1,6 +1,7 @@
 #ifndef widget_type_position
 #define widget_type_position
 
+// ::widget::type::positionNd_type<number_name, dimension_number >
 #include <array>
 
 
@@ -18,8 +19,8 @@ namespace widget
     typedef std::array< integer_type, 4> position4d_type;
     typedef std::array< integer_type, 5> position5d_type;
 
-	template< typename number_name, unsigned dimension_number >
-	  using positionNd_type = std::array< typename number_name, dimension_number >;
+    template< typename number_name, unsigned dimension_number >
+      using positionNd_type = std::array< number_name, dimension_number >;
 
    }
  }

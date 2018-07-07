@@ -17,7 +17,6 @@ namespace widget
     template< typename size_name, typename position_name, unsigned dimension_number >
      class basic
       : public ::widget::window::pure< size_name, position_name, dimension_number>
-      , public virtual ::widget::event::generator::pure
       {
        public:
 
@@ -36,18 +35,38 @@ namespace widget
          basic()
           {
            m_generator = new ::widget::event::generator::idle;
-           m_canvas    = new ::widget::canvas::devnull<size_name, position_name, dimension_number>;
+           m_canvas    = this;
            m_consumer  = this;
            m_generator->consumer( m_consumer );
           }
 
          virtual ~basic() { }
 
-         bool run()override
+         virtual operator generator_type&()
+          {
+           return *m_generator;
+          }
+
+         virtual operator canvas_type&()
+          {
+           return *m_canvas;
+          }
+
+         virtual operator consumer_type&()
+          {
+           return *m_consumer;
+          }
+
+         bool run()
           {
            if( true == this->m_generator->active() )
             {
              return true;
+            }
+
+           if( false == ::widget::window::exchange::prepare::process( *this, * this->m_generator ) )
+            {
+             return false;
             }
 
            if( false == this->m_generator->run() )
@@ -55,7 +74,7 @@ namespace widget
              return false;
             }
 
-           if( false == ::widget::window::exchange::process( * this->m_canvas, * this->m_generator ) )
+           if( false == ::widget::window::exchange::report::process( * this->m_canvas, * this->m_generator ) )
             {
              return false;
             }
@@ -63,8 +82,15 @@ namespace widget
            return true;
           }
 
-         void stop()override
+         void stop()
           {
+           if( false == this->active() )
+            {
+             return;
+            }
+
+           this->active_protected().store( false );
+
            this->m_generator->stop();
           }
 
@@ -74,7 +100,7 @@ namespace widget
           }
 
       public:
-         canvas_ptr_type    const& canvas()const{ return m_canvas; }
+         virtual canvas_ptr_type    const& canvas()const{ return m_canvas; }
          virtual void canvas( canvas_ptr_type const& canvas_param )
           {
            m_canvas = canvas_param;
@@ -85,7 +111,7 @@ namespace widget
          canvas_ptr_type m_canvas;
 
        public:
-         consumer_ptr_type    const& consumer()const { return m_consumer; }
+         virtual consumer_ptr_type    const& consumer()const { return m_consumer; }
          virtual void consumer( consumer_ptr_type const& consumer_param)
           {
            m_consumer = consumer_param;
@@ -96,7 +122,7 @@ namespace widget
          consumer_ptr_type m_consumer;
 
        public:
-         generator_ptr_type    const& generator()const{ return m_generator; }
+         virtual generator_ptr_type    const& generator()const{ return m_generator; }
          virtual void generator( generator_ptr_type const& generator_param )
           {
            m_generator = generator_param;
