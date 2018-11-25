@@ -1,0 +1,8 @@
+#include "./color.hpp"
+#include "./dumb.hpp"
+#include "./id.hpp"
+#include "./position.hpp"
+#include "./rectangle.hpp"
+#include "./scalar.hpp"
+#include "./size.hpp"
+#include "./string.hpp"

@@ -19,11 +19,11 @@ namespace widget
        {
         b.generator(  new ::widget::event::generator::win32 );
 
-        auto canvas =  new ::widget::canvas::win32;
-        b.canvas( canvas );
+        //auto canvas =  new ::widget::canvas::win32;
+        //b.canvas( canvas );
 
         auto consumer =  new ::widget::event::consumer::win32;
-        consumer->canvas( canvas );
+        //consumer->canvas( canvas );
         consumer->window( &b );
 
         b.consumer( consumer );

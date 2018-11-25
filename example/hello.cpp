@@ -27,7 +27,7 @@ int main( int argc, char *argv[] )
   typedef ::widget::window::basic< std::size_t, int, 2 > window_t;
 
   window_t w; 
-  ::widget::window::win32( w );
+  ::widget::window::native( w );
 
   w.size( {600,600} );
 
@@ -42,9 +42,9 @@ int main( int argc, char *argv[] )
   //w.attach( &tx );
   //w.attach( &f );
 
-  background_t{ { 255u, 0u, 127u } }.draw( *w.canvas() );
-  text_t(       { 20u, 50u }, "XXX Hello World XXXX", { 100, 255, 0 } ).draw( *w.canvas() );
-  circle_t(     { 20u, 20u }, 15, { 255u, 0u, 0u } ).draw( *w.canvas() );
+  background_t{ { 255u, 0u, 127u } }.draw( w );
+  text_t(       { 20u, 50u }, "XXX Hello World XXXX", { 100, 255, 0 } ).draw( w );
+  circle_t(     { 20u, 20u }, 15, { 255u, 0u, 0u } ).draw( w );
 
   //refresh_t{}.draw( *w.canvas() );
 

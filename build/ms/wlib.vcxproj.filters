@@ -49,6 +49,9 @@
     <Filter Include="Source Files\src\widget\D - window\C - element">
       <UniqueIdentifier>{15124fa6-dc0a-44b7-8df4-3955006b8bf6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\src\widget\D - window\exchange\prepare">
+      <UniqueIdentifier>{fe203b8d-b02c-493a-b040-b5df42db5521}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\widget\element\basic.cpp">
@@ -93,9 +96,6 @@
     <ClCompile Include="..\..\src\widget\canvas\primitive\unlock.cpp">
       <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\widget\window\exchange\process.cpp">
-      <Filter>Source Files\src\widget\D - window\exchange</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\widget\window\exchange\win32.cpp">
       <Filter>Source Files\src\widget\D - window\exchange</Filter>
     </ClCompile>
@@ -107,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="..\..\src\widget\canvas\primitive\refresh.cpp">
       <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\widget\window\exchange\process.cpp">
+      <Filter>Source Files\src\widget\D - window\exchange\prepare</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,9 +236,6 @@
     <ClInclude Include="..\..\src\widget\canvas\primitive\nothing.hpp">
       <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\widget\window\exchange\process.hpp">
-      <Filter>Source Files\src\widget\D - window\exchange</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\widget\window\exchange\win32.hpp">
       <Filter>Source Files\src\widget\D - window\exchange</Filter>
     </ClInclude>
@@ -259,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\widget\canvas\crop.hpp">
       <Filter>Source Files\src\widget\A - canvas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\widget\window\exchange\process.hpp">
+      <Filter>Source Files\src\widget\D - window\exchange\prepare</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

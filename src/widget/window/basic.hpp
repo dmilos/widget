@@ -35,9 +35,9 @@ namespace widget
          basic()
           {
            m_generator = new ::widget::event::generator::idle;
-           m_canvas    = this;
-           m_consumer  = this;
-           m_generator->consumer( m_consumer );
+           //m_canvas    = this;
+           //m_consumer  = this;
+           m_generator->consumer( this );
           }
 
          virtual ~basic() { }
@@ -47,15 +47,15 @@ namespace widget
            return *m_generator;
           }
 
-         virtual operator canvas_type&()
-          {
-           return *m_canvas;
-          }
-
-         virtual operator consumer_type&()
-          {
-           return *m_consumer;
-          }
+         //virtual operator canvas_type&()
+         // {
+         //  return *m_canvas;
+         // }
+         //
+         //virtual operator consumer_type&()
+         // {
+         //  return *m_consumer;
+         // }
 
          bool run()
           {
@@ -74,7 +74,7 @@ namespace widget
              return false;
             }
 
-           if( false == ::widget::window::exchange::report::process( * this->m_canvas, * this->m_generator ) )
+           if( false == ::widget::window::exchange::report::process( *this, * this->m_generator ) )
             {
              return false;
             }
@@ -99,16 +99,16 @@ namespace widget
            return m_consumer->process( e );
           }
 
-      public:
-         virtual canvas_ptr_type    const& canvas()const{ return m_canvas; }
-         virtual void canvas( canvas_ptr_type const& canvas_param )
-          {
-           m_canvas = canvas_param;
-          }
-       protected:
-         canvas_ptr_type        & canvas_protected(){ return m_canvas; }
-       private:
-         canvas_ptr_type m_canvas;
+      //public:
+      //   virtual canvas_ptr_type    const& canvas()const{ return m_canvas; }
+      //   virtual void canvas( canvas_ptr_type const& canvas_param )
+      //    {
+      //     m_canvas = canvas_param;
+      //    }
+      // protected:
+      //   canvas_ptr_type        & canvas_protected(){ return m_canvas; }
+      // private:
+      //   canvas_ptr_type m_canvas;
 
        public:
          virtual consumer_ptr_type    const& consumer()const { return m_consumer; }
