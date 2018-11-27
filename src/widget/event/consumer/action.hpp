@@ -1,7 +1,7 @@
 #ifndef widget_event_action
 #define widget_event_action
 
-// ::widget::event::action_type
+// ::widget::event::consumer::action_type
 
 #include <functional>
 #include "./pure.hpp"

@@ -15,7 +15,7 @@ namespace widget
    {
 
     class win32
-    : public virtual widget::canvas::crop< std::size_t, int, 2 >
+     : public virtual widget::canvas::crop< std::size_t, int, 2 >
      {
       public:
         typedef widget::canvas::crop< std::size_t, int, 2 > crop_type;
@@ -31,7 +31,7 @@ namespace widget
 
       public:
         using crop_type::size;
-        virtual bool          size( sizeNd_type const& size_param );
+        bool          size( sizeNd_type const& size_param );
 
       public:
         HWND    m_hWnd;

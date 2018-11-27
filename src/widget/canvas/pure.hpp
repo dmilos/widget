@@ -26,12 +26,38 @@ namespace widget
         virtual ~pure(){ }
        //pure & operator=( pure const& original ){ return *this; }
 
+
+       public:
+
+         virtual operator pure_type  (){return *this;}
+         virtual operator pure_type const  ()const{ return *this;}
+         virtual operator pure_type& (){return *this;}
+         virtual operator pure_type const& ()const{ return *this;}
+
+         virtual pure_type      * operator&()       { return this; }
+         virtual pure_type const* operator&() const { return this; }
+
        public:
          virtual void lock(){  }
          virtual void unlock(){  }
          bool volatile const& status()const { return m_status; }
+
+       protected:
+         typedef class protector
+          {
+           public:
+             protector( pure_type & pure ):m_pure( pure ){ m_pure.lock(); }
+            ~protector( ){ m_pure.unlock(); }
+
+           private:
+            pure_type & m_pure;
+          }protector_type;
+
        private:
          volatile bool m_status;
+
+       public:
+         static unsigned dimension(){ return dimension_number; }
       };
 
    }

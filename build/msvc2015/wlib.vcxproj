@@ -12,7 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\example\hello.cpp" />
-    <ClCompile Include="..\..\example\reaction.cpp" />
     <ClCompile Include="..\..\src\widget\canvas\primitive\background.cpp" />
     <ClCompile Include="..\..\src\widget\canvas\primitive\box.cpp" />
     <ClCompile Include="..\..\src\widget\canvas\primitive\circle.cpp" />

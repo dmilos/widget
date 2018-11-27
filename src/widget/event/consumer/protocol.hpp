@@ -1,7 +1,7 @@
 #ifndef widget_event_protocol
 #define widget_event_protocol
 
-// widget::event::protocol
+// ::widget::event::consumer::protocol
 
 #include <map>
 
@@ -16,6 +16,7 @@ namespace widget
     namespace consumer
      {
 
+      // template < container >
       class protocol
        : public ::widget::event::consumer::pure
        {
@@ -25,10 +26,10 @@ namespace widget
           typedef ::widget::event::pure::pair_type                  pair_type;
 
           typedef ::widget::event::consumer::action_type    action_type;
-    
+
           typedef std::map< id_type, action_type > container_type;
-    
-    
+
+
         public:
           bool process( event_type const& event )
            {
@@ -39,9 +40,13 @@ namespace widget
              }
             return i->second( event );
            }
-    
+
         public:
-                  void clear(  ){ m_container.clear(); }
+                  void clear(  )
+                   {
+                    m_container.clear();
+                   }
+
           virtual void trigger( pair_type const& pair, action_type const& action )
            {
             m_container.emplace( pair, action );

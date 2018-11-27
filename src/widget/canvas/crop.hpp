@@ -18,7 +18,7 @@ namespace widget
 
     template< typename size_name, typename position_name, unsigned dimension_number >
      class crop
-      : public virtual widget::canvas::pure< size_name, position_name, dimension_number >
+      : virtual public widget::canvas::pure< size_name, position_name, dimension_number >
       {
        public:
          typedef widget::canvas::pure< size_name, position_name, dimension_number > pure_type;
@@ -80,6 +80,18 @@ namespace widget
              this->client_protected().second[i] = this->client_protected().first[i] + s[i];
             }
            return true;
+          }
+
+         virtual bool               offset( sizeNd_type const& o )
+          {
+           for( decltype(o.size()) i=0; i< o.size();++i)
+            {
+             auto  s = this->client_protected().second[i] - this->client_protected().first[i];
+             this->client_protected().first[i] = o[i];
+             this->client_protected().second[i] = o[i] + s;
+            }
+           return true;
+
           }
 
 

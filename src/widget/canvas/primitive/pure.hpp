@@ -2,6 +2,9 @@
 #define widget_primitive_pure
 
 // ::widget::canvas::primitive::pure< size_name, position_name, dimension_number>
+// ::widget::canvas::primitive::pointer< size_name, position_name, dimension_number>
+
+#include <memory>
 
 #include "../pure.hpp"
 
@@ -24,6 +27,7 @@ namespace widget
            virtual void draw( canvas_type & canvas_param )const=0;
 
         };
+
      }
    }
  }

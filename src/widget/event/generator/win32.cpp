@@ -173,7 +173,7 @@ LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT messa
      }
      break;
     case WM_PAINT:
-     if(false){
+     if(true){
        COLORREF clrRed  = RGB(255, 25, 5);
        COLORREF clrAqua = RGB(0, 255, 255);
        COLORREF clrNavy = RGB(0, 0, 128);
@@ -183,7 +183,7 @@ LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT messa
 
        //BitBlt( hdc, 0, 0, canvas->size()[0], canvas->size()[1], canvas->m_dc, 0, 0, SRCCOPY);
 
-       SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOut(hdc, 50, 42, "Johnny Carson", 13);
+       SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOut(hdc, 30, 12, "Generator Johnny Carson", 13);
        SetBkColor(hdc, clrNavy);     SetTextColor(hdc, clrAqua);    TextOut(hdc, 50, 80, "The once king of late-night", 27);
        EndPaint(hWnd, &ps);
      }break;
@@ -198,10 +198,9 @@ LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT messa
    {
     if( true == this_generator->consumer_protected()->process( event_type( 0, message ) ) )
      {
-      return 1;
       return DefWindowProc(hWnd, message, wParam, lParam);
      }
    }
-  
+
   return DefWindowProc(hWnd, message, wParam, lParam);
  }

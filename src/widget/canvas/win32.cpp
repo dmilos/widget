@@ -15,18 +15,23 @@
   m_bitmap = nullptr;
   m_hOld   = nullptr;
 
-  //offset( { 0, 0 } );
-  size( { 100, 100 } );
+  this->offset( { 0, 0 } );
+  this->size( { 100, 100 } );
  }
 
 ::widget::canvas::win32::~win32()
  {
-  clear();
+  this->clear();
  }
 
 void
 ::widget::canvas::win32::clear()
  {
+  if( nullptr == this->m_hWnd )
+   {
+    return;
+   }
+
   if( NULL != m_dc )
    {
     SelectObject( m_dc, m_hOld );
@@ -34,15 +39,21 @@ void
     DeleteDC( m_dc );
    }
 
-  m_hWnd = 0;
-  m_dc = nullptr;
-  m_bitmap = nullptr;
-  m_hOld = nullptr;
+  this->m_hWnd = 0;
+  this->m_dc = nullptr;
+  this->m_bitmap = nullptr;
+  this->m_hOld = nullptr;
  }
 
 bool
 ::widget::canvas::win32::size( size2d_type const& size_param )
  {
+  crop_type::size( size_param );
+  if( nullptr == m_hWnd )
+   {
+    return true;
+   }
+
   HDC ddc        = GetDC( m_hWnd );
   HDC dc         = CreateCompatibleDC( ddc );
   HBITMAP bitmap = CreateCompatibleBitmap( ddc, size_param[0], size_param[1] );
@@ -62,8 +73,6 @@ bool
   m_dc     = dc;
   m_bitmap = bitmap;
   m_hOld   = hOld;
-
-  crop_type::size( size_param );
 
   return true;
  }

@@ -19,3 +19,5 @@ doc/doxygen/html
 /out/nt
 /build/ms/out
 /build/out
+/build/msvc2015/*.opendb
+/build/msvc2015/*.db

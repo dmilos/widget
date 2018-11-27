@@ -16,9 +16,10 @@ namespace widget { namespace window { namespace exchange
   namespace prepare
    {
 
-    bool process( widget::canvas::pure< std::size_t, int, 2 > & c, widget::event::generator::pure & g )
+    bool process( widget::canvas::pure< std::size_t, int, 2U > & c, widget::event::generator::pure & g )
      {
     #if defined( _MSC_VER )
+      typedef widget::canvas::pure< std::size_t, int, 2U >  canvas_type;
       auto cD = dynamic_cast< ::widget::canvas::win32 * >( &c );
       if( nullptr == cD )
        {
@@ -51,7 +52,15 @@ namespace widget { namespace window { namespace exchange
      {
     #if defined( _MSC_VER )
       auto cD = dynamic_cast< ::widget::canvas::win32 * >( &c );
+      if( nullptr == cD )
+       {
+        return false;
+       }
       auto gD = dynamic_cast< ::widget::event::generator::win32 *  >( &g );
+      if( nullptr == gD )
+       {
+        return false;
+       }
 
       return widget::window::exchange::report::win32(  *cD, *gD );
     #endif

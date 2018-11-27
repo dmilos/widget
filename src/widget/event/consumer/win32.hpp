@@ -69,16 +69,22 @@ namespace widget
               {
                case( 0x000F ):
                  {
-                  PAINTSTRUCT ps;
                   widget::canvas::win32 * w32c = dynamic_cast<widget::canvas::win32*>( this->canvas_protected() );
-
+                  if( nullptr == w32c )
+                   {
+                    break;
+                   }
+                  PAINTSTRUCT ps;
                   HDC hdc = BeginPaint( w32c->m_hWnd, &ps );
+                  //w32c->DC( hdc );
 
                   BitBlt( hdc, 0, 0, w32c->size()[0], w32c->size()[1], w32c->m_dc, 0, 0, SRCCOPY );
 
-                  for( auto const& element : *(this->window_protected()) )
+                  typedef widget::canvas::collection<std::size_t,int,2> collection_t;
+                  collection_t * c = dynamic_cast<collection_t*>( &(*this->canvas_protected()) );
+                  if( nullptr != c )
                    {
-                    element.second->draw( *w32c );
+                    c->refresh();
                    }
 
                  if(false){
@@ -86,7 +92,7 @@ namespace widget
                   COLORREF clrAqua = RGB(    0, 255, 255 );
                   COLORREF clrNavy = RGB(    0,   0, 128 );
 
-                  SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOut( hdc, 10, 10, "Johnny Carson", 13);
+                  SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOut( hdc, 10, 10, "Johnny CARSON", 13);
                   SetBkColor(hdc, clrNavy);               SetTextColor(hdc, clrAqua);   TextOut( hdc, 150, 180, "The once king of late-night", 27);
                  }
 
@@ -99,7 +105,10 @@ namespace widget
 
                  {
                   widget::canvas::win32 * w32c = dynamic_cast<widget::canvas::win32*>( this->canvas_protected() );
-                  w32c->size( { width, height } );
+                  if( nullptr != w32c )
+                   {
+                    w32c->size( { width, height } );
+                   }
                  }
 
                 } return true;

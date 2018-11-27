@@ -102,9 +102,6 @@
     <ClCompile Include="..\..\example\hello.cpp">
       <Filter>Source Files\src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\example\reaction.cpp">
-      <Filter>Source Files\src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\src\widget\canvas\primitive\refresh.cpp">
       <Filter>Source Files\src\widget\A - canvas\primitive</Filter>
     </ClCompile>

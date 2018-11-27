@@ -17,18 +17,15 @@ namespace widget
     template< typename size_name, typename position_name, unsigned dimension_number >
      inline void win32(  ::widget::window::basic< size_name, position_name, dimension_number> &b )
        {
-        b.generator(  new ::widget::event::generator::win32 );
+        auto w32generator = new ::widget::event::generator::win32{};
+        b.generator( w32generator );
+        auto w32canvas = new ::widget::canvas::win32{};
+        b.canvas(   w32canvas );
+        auto w32consumer = new ::widget::event::consumer::win32{};
+        b.consumer( w32consumer );
 
-        //auto canvas =  new ::widget::canvas::win32;
-        //b.canvas( canvas );
-
-        auto consumer =  new ::widget::event::consumer::win32;
-        //consumer->canvas( canvas );
-        consumer->window( &b );
-
-        b.consumer( consumer );
-
-        b.generator()->consumer( consumer );
+        w32consumer->canvas( w32canvas );
+        w32generator->consumer( w32consumer );
        }
 
     }

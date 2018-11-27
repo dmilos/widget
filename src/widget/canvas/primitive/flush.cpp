@@ -20,7 +20,6 @@ widget::canvas::primitive::flush<std::size_t,int,2>::draw( canvas_type &canvas_p
 #if defined( __GNUC__ )
   //widget::canvas::xlib & xlc = static_cast<widget::canvas::xlib&>( canvas_param );
   //XFlush( xlc.m_display );
-
 #endif
 
  }

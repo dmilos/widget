@@ -1,14 +1,14 @@
-# Yet another c++ library that implements color.
-###Status:
+# Yet another c++ GUI library
+### Status:
 - Highly experimental
 
-###Description
+### Description
  - Yet another c++ GUI library
 
-###Key features:
+### Key features:
 - Small
 
-###Code sample:
+### Code sample:
 ```c++
 int main( int argc, char *argv[] )
  {
@@ -31,5 +31,5 @@ int main( int argc, char *argv[] )
 
 ```
 
-###Install:
-1. Clone this Repository:  
+### Install:
+1. Clone this Repository:
