@@ -15,10 +15,13 @@ namespace widget
    {
 
     class win32
-     : public virtual widget::canvas::crop< std::size_t, int, 2 >
+     : public virtual widget::canvas::crop< ::widget::type::size_type, ::widget::type::integer_type, 2 >
      {
       public:
-        typedef widget::canvas::crop< std::size_t, int, 2 > crop_type;
+        typedef ::widget::type::integer_type integer_type;
+        typedef ::widget::type::size_type      size_type;
+
+        typedef widget::canvas::crop< size_type, integer_type, 2 > crop_type;
 
         typedef crop_type::sizeNd_type sizeNd_type, size2d_type;
 

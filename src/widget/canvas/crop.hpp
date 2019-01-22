@@ -21,6 +21,9 @@ namespace widget
       : virtual public widget::canvas::pure< size_name, position_name, dimension_number >
       {
        public:
+        typedef     size_name       size_type;
+        typedef     position_name   position_type;
+
          typedef widget::canvas::pure< size_name, position_name, dimension_number > pure_type;
 
          typedef ::widget::type::rectangleNd_type< position_name, dimension_number > rectangleNd_type;
@@ -38,14 +41,17 @@ namespace widget
            return bool( true );
           }
        protected:
-         rectangleNd_type         & client_protected(){ return m_client; }
+         rectangleNd_type         & client_protected()
+         {
+          return m_client; 
+         }
        private:
          rectangleNd_type m_client;
 
        public:
          positionNd_type    const& lo()const
           {
-           return this->client_protected().first;
+           return this->client().first;
           }
          virtual bool               lo( positionNd_type const& lower )
           {
@@ -55,7 +61,7 @@ namespace widget
 
          positionNd_type    const& hi()const
           {
-           return this->client_protected().first;
+           return this->client().first;
           }
          virtual bool               hi( positionNd_type const& upper )
           {
@@ -77,7 +83,7 @@ namespace widget
           {
            for( decltype(s.size()) i=0; i< s.size();++i)
             {
-             this->client_protected().second[i] = this->client_protected().first[i] + s[i];
+             this->client_protected().second[i] = static_cast<position_type>( this->client_protected().first[i] + s[i] );
             }
            return true;
           }
@@ -87,8 +93,8 @@ namespace widget
            for( decltype(o.size()) i=0; i< o.size();++i)
             {
              auto  s = this->client_protected().second[i] - this->client_protected().first[i];
-             this->client_protected().first[i] = o[i];
-             this->client_protected().second[i] = o[i] + s;
+             this->client_protected().first[i]  = static_cast<position_type>( o[i] );
+             this->client_protected().second[i] = static_cast<position_type>( o[i] + s );
             }
            return true;
 

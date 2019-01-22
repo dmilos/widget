@@ -4,8 +4,10 @@
 // widget::element::basic
 
 #include <memory>
-#include "./pure.hpp"
+#include "../../type/integer.hpp"
+#include "../../type/size.hpp"
 #include "../../event/consumer/devnull.hpp"
+#include "./pure.hpp"
 
 
 namespace widget
@@ -16,24 +18,27 @@ namespace widget
      {
 
       class basic
-       : public  ::widget::window::element::pure<std::size_t, int, 2>
+       : public  ::widget::window::element::pure< widget::type::size_type, widget::type::integer_type, 2>
        {
         public:
-          typedef ::widget::window::element::pure<std::size_t, int, 2>  pure_type;
-      
+          typedef widget::type::size_type size_type;
+          typedef widget::type::integer_type integer_type;
+
+          typedef ::widget::window::element::pure< size_type, integer_type, 2>  pure_type;
+
           typedef ::widget::type::dumb_ptr< pure_type::primitive_type > primitive_ptr_type;
           typedef std::unique_ptr< pure_type::consumer_type  >  consumer_ptr_type;
-      
+
           basic();
           basic(primitive_ptr_type const& primitive_param, consumer_ptr_type & consumer_param = consumer_ptr_type{ new ::widget::event::consumer::devnull });
         //pure( pure const& original ){ *this = P_original; }
          ~basic();
         //pure & operator=( pure const& original ){ return *this; }
-      
+
         public:
           void draw( canvas_type & canvas_param )const;
           bool process( event_type const & event_param );
-      
+
         public:
           consumer_type    const& consumer()const { return *m_consumer; }
           consumer_type         & consumer() { return *m_consumer; }
@@ -45,7 +50,7 @@ namespace widget
           consumer_ptr_type     & consumer_ptr() { return m_consumer; }
         private:
           consumer_ptr_type m_consumer;
-      
+
         public:
           primitive_type    const& primitive()const { return *m_primitive; }
           primitive_type         & primitive() { return *m_primitive; }

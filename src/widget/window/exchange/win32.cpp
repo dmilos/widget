@@ -4,7 +4,8 @@
 
 bool widget::window::exchange::prepare::win32( widget::canvas::win32 & c, widget::event::generator::win32 & g )
  {
-  g.m_size = c.size();
+ // TODOs
+  g.m_size = c.size() ;
   return true;
  }
 

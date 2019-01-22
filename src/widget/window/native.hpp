@@ -11,7 +11,7 @@ namespace widget
   namespace window
    {
 
-    //typedef ::widget::window::win32< std::size_t, int, 2 >  native_t, win32_t;
+    //typedef ::widget::window::win32< widget::type::size_type, widget::type::integer_type, 2 >  native_t, win32_t;
 
     template< typename size_name, typename position_name, unsigned dimension_number >
      inline void native( ::widget::window::basic< size_name, position_name, dimension_number> &b )

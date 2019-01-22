@@ -56,7 +56,7 @@ bool
 
   HDC ddc        = GetDC( m_hWnd );
   HDC dc         = CreateCompatibleDC( ddc );
-  HBITMAP bitmap = CreateCompatibleBitmap( ddc, size_param[0], size_param[1] );
+  HBITMAP bitmap = CreateCompatibleBitmap( ddc, int( size_param[0]), int( size_param[1] ) );
 
   ReleaseDC( m_hWnd,  ddc );
 
@@ -64,7 +64,9 @@ bool
 
   if( NULL != m_dc )
    {
-    BitBlt( dc, 0, 0, std::min<int>( size_param[0], size()[0] ), std::min<int>(size_param[1], size()[1] ), m_dc, 0, 0, SRCCOPY );
+    auto cx = std::min<size_type>( size_param[0], this->size()[0] );
+    auto cy = std::min<size_type>( size_param[1], this->size()[1] );
+    BitBlt( dc, 0, 0, int(cx), int(cy), m_dc, 0, 0, SRCCOPY );
     SelectObject( m_dc, m_hOld );
     DeleteObject( m_bitmap );
     DeleteDC( m_dc );
@@ -74,6 +76,11 @@ bool
   m_bitmap = bitmap;
   m_hOld   = hOld;
 
+  {
+   RECT rect;
+   GetWindowRect( m_hWnd, &rect );
+   MoveWindow( m_hWnd, this->lo()[0], this->lo()[1],  this->size()[0],  this->size()[1], TRUE );
+  }
   return true;
  }
 

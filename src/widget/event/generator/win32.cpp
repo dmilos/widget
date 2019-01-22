@@ -103,12 +103,15 @@ bool widget::event::generator::win32::registerClass()
   wcex.cbClsExtra = 0;
   wcex.cbWndExtra = 0;
   wcex.hInstance = GetModuleHandle(0);
-  wcex.hIcon = LoadIcon(GetModuleHandle(0), MAKEINTRESOURCE(IDI_APPLICATION));
   wcex.hCursor = LoadCursor(NULL, IDC_ARROW);
   wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
   wcex.lpszMenuName = NULL;
-  wcex.lpszClassName = "{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}";
-  wcex.hIconSm = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
+  wcex.lpszClassName = _T( "{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}" );
+#pragma warning ( push )
+#pragma warning ( disable: 4302 )
+  wcex.hIcon   = LoadIcon( wcex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION) );
+  wcex.hIconSm = LoadIcon( wcex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION) );
+#pragma warning ( pop )
 
   if( !RegisterClassEx(&wcex) )
    {
@@ -121,11 +124,11 @@ bool widget::event::generator::win32::registerClass()
 HWND widget::event::generator::win32::makeInstance()
  {
   HWND hWnd = CreateWindow(
-    "{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}",
-    "",
+    _T( "{7969DD8A-EB0E-4E5F-9848-692BCA2D76F7}" ),
+    _T(""),
     WS_OVERLAPPEDWINDOW,
     CW_USEDEFAULT, CW_USEDEFAULT,
-    m_size[0], m_size[1],
+    int( m_size[0] ), int( m_size[1] ),
     NULL,
     NULL,
     GetModuleHandle(0),
@@ -183,8 +186,8 @@ LRESULT CALLBACK widget::event::generator::win32::WndProc( HWND hWnd, UINT messa
 
        //BitBlt( hdc, 0, 0, canvas->size()[0], canvas->size()[1], canvas->m_dc, 0, 0, SRCCOPY);
 
-       SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOut(hdc, 30, 12, "Generator Johnny Carson", 13);
-       SetBkColor(hdc, clrNavy);     SetTextColor(hdc, clrAqua);    TextOut(hdc, 50, 80, "The once king of late-night", 27);
+       SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOut(hdc, 30, 12, _T( "Generator Johnny Carson" ), 13);
+       SetBkColor(hdc, clrNavy);     SetTextColor(hdc, clrAqua);             TextOut(hdc, 50, 80, _T( "The once king of late-night" ), 27);
        EndPaint(hWnd, &ps);
      }break;
     case WM_DESTROY:

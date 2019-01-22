@@ -21,3 +21,4 @@ doc/doxygen/html
 /build/out
 /build/msvc2015/*.opendb
 /build/msvc2015/*.db
+/build/msvc2015/out

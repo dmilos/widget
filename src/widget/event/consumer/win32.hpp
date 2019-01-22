@@ -24,9 +24,12 @@ namespace widget
         {
          public:
 
+           typedef widget::type::size_type size_type;
+           typedef int integer_type;
+
            typedef ::widget::event::consumer::pure      pure_type;
            typedef ::widget::canvas::win32            canvas_type;
-           typedef ::widget::window::pure< std::size_t, int, 2 > window_type;
+           typedef ::widget::window::pure< size_type, integer_type, 2 > window_type;
            typedef ::widget::event::pure               event_type;
 
            typedef ::widget::type::dumb_ptr< canvas_type >   canvas_ptr_type;
@@ -78,9 +81,9 @@ namespace widget
                   HDC hdc = BeginPaint( w32c->m_hWnd, &ps );
                   //w32c->DC( hdc );
 
-                  BitBlt( hdc, 0, 0, w32c->size()[0], w32c->size()[1], w32c->m_dc, 0, 0, SRCCOPY );
+                  BitBlt( hdc, 0, 0, int( w32c->size()[0]), int( w32c->size()[1] ), w32c->m_dc, 0, 0, SRCCOPY );
 
-                  typedef widget::canvas::collection<std::size_t,int,2> collection_t;
+                  typedef widget::canvas::collection<size_type,integer_type,2> collection_t;
                   collection_t * c = dynamic_cast<collection_t*>( &(*this->canvas_protected()) );
                   if( nullptr != c )
                    {
@@ -92,8 +95,8 @@ namespace widget
                   COLORREF clrAqua = RGB(    0, 255, 255 );
                   COLORREF clrNavy = RGB(    0,   0, 128 );
 
-                  SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOut( hdc, 10, 10, "Johnny CARSON", 13);
-                  SetBkColor(hdc, clrNavy);               SetTextColor(hdc, clrAqua);   TextOut( hdc, 150, 180, "The once king of late-night", 27);
+                  SetBkColor(hdc, RGB(255, 255, 255));    SetTextColor(hdc, clrRed);    TextOutA( hdc, 10, 10,      "Johnny CARSON" , 13);
+                  SetBkColor(hdc, clrNavy);               SetTextColor(hdc, clrAqua);   TextOutA( hdc, 150, 180,   "The once king of late-night" , 27);
                  }
 
                  EndPaint( w32c->m_hWnd, &ps );

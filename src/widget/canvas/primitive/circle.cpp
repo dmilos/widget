@@ -20,6 +20,6 @@ widget::canvas::primitive::circle<std::size_t,int,2>::draw( canvas_type & canvas
     return;
    }
 
-  Ellipse( w32c->m_dc, m_centre[0] - m_radius, m_centre[1] - m_radius, m_centre[0] + m_radius, m_centre[1] + m_radius );
+  Ellipse( w32c->m_dc, int( m_centre[0] - m_radius ), int( m_centre[1] - m_radius), int( m_centre[0] + m_radius), int( m_centre[1] + m_radius) );
 #endif
  }

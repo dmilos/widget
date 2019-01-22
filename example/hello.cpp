@@ -16,6 +16,7 @@ using namespace std;
 int main( int argc, char *argv[] )
  {
   typedef ::widget::canvas::primitive::pure<std::size_t, int, 2>       primitive_t;
+
   typedef ::widget::canvas::primitive::text<std::size_t, int, 2>       text_t;
   typedef ::widget::canvas::primitive::background<std::size_t, int, 2> background_t;
   typedef ::widget::canvas::primitive::flush<std::size_t, int, 2>      flush_t;
@@ -30,16 +31,17 @@ int main( int argc, char *argv[] )
   window_t w;
   ::widget::window::native( w );
 
-  w.size( {600,600} );
+  w.offset( {100,100} );
+  w.size( {900,600} );
 
   ::widget::window::element::basic bg( new background_t{ { 0u, 255u, 0u } } );
                             text_t tx(                   { 20u, 50u }, "Hello World ELEMENT", { 100, 255, 0 } ) ;
   ::widget::window::element::basic f{ new flush_t{} };
-  
+
   //tx.trigger( ::widget::event::pure(0,0) , ::widget::event::consumer::action_type{} );
 
   w.run();
-  w.size( {900u,900u} );
+  w.size( {600u,400u} );
 
   //w.attach( "bg", &bg );
    w.attach( 0,  &tx );

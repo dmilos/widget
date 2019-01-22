@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\main">
+      <UniqueIdentifier>{ccb45405-a54f-46a2-b800-5097fe99e1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\wlib">
+      <UniqueIdentifier>{06a27494-135d-4896-b70c-e2ac8ffb4786}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\example\hello.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\background.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\window\element\basic.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\box.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\circle.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\flush.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\lock.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\pixel.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\window\exchange\process.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\event\generator\pure.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\refresh.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\text.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\primitive\unlock.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\canvas\win32.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\window\exchange\win32.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\widget\event\generator\win32.cpp">
+      <Filter>Source Files\wlib</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

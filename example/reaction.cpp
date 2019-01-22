@@ -34,8 +34,8 @@ int main( int argc, char *argv[] )
   w.attach(&circle);
   w.attach(&flush);
 
-  //circle.consumer().trigger( { widget::event::constant::mouse::_1, widget::event::constant::mouse::button_00_up }, [](::widget::event::pure const&)-> bool { std::cout << "aaaa" << std::endl; });
-  //circle.consumer().trigger( { widget::event::constant::keyboard::_1, widget::event::constant::keyboard::A_up },   [](::widget::event::pure const&)-> bool { std::cout << "bbb"  << std::endl; });
+  //circle.trigger( { widget::event::constant::mouse::_1, widget::event::constant::mouse::button_00_up }, [](::widget::event::pure const&)-> bool { std::cout << "aaaa" << std::endl; });
+  //circle.trigger( { widget::event::constant::keyboard::_1, widget::event::constant::keyboard::A_up },   [](::widget::event::pure const&)-> bool { std::cout << "bbb"  << std::endl; });
 
    w.run();
 

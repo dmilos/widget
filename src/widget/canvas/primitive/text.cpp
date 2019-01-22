@@ -23,7 +23,7 @@ widget::canvas::primitive::text<std::size_t, int, 2>::draw( canvas_type & canvas
   SetTextColor( w32c->m_dc, RGB( m_color[0], m_color[1],m_color[2] ) );
   SetBkColor( w32c->m_dc, RGB( 0, 0, 0 ) );
   SetBkMode( w32c->m_dc, TRANSPARENT );
-  TextOutA( w32c->m_dc, m_position[0], m_position[1], m_content.c_str(), m_content.size() );
+  TextOutA( w32c->m_dc, m_position[0], m_position[1], m_content.c_str(), int( m_content.size() ) );
 #endif
 
 #if defined( __GNUC__ )
